@@ -247,17 +247,16 @@ body {
 .reveal { opacity: 0; transform: translateY(30px); transition: 0.6s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 /* =========================================
-   RESPONSIVE MODE (TABLET & HP) - FIX TOTAL
+/* =========================================
+   RESPONSIVE MODE (TABLET & HP) - FINAL FIX
    ========================================= */
 
 /* 1. TABLET MODE (max-width: 1024px) */
 @media (max-width: 1024px) {
-    /* Logo Grid jadi 2 kolom (biar gak gepeng) */
     .logo-grid-top { 
         grid-template-columns: repeat(2, 1fr) !important; 
     }
 
-    /* Mockup Grid jadi 2 kolom */
     .mockup-grid { 
         grid-template-columns: 1fr 1fr !important; 
     }
@@ -267,81 +266,109 @@ body {
     }
 }
 
-/* =========================================
-   FIX TOTAL: ANTI LONJONG & ANTI GEPENG (HP)
-   ========================================= */
+/* 2. MOBILE MODE (HP - max-width: 768px) */
 @media (max-width: 768px) {
-    /* 1. Fix Kotak Sub-Card (Logo Type, Submark, Brandmark) */
+    body { 
+        padding: 15px; 
+    }
+
+    /* FIX NAVIGASI PILL: Tetap Horizontal (Kiri-Kanan) */
+    .nav-pill-wrapper { 
+        display: flex !important;
+        flex-direction: row !important; /* Paksa horizontal */
+        flex-wrap: nowrap !important; /* Cegah turun ke bawah */
+        justify-content: center !important;
+        gap: 8px !important;
+        width: fit-content !important;
+        margin: 0 auto 20px auto !important;
+        padding: 5px 10px !important;
+    }
+
+    .nav-pill-item { 
+        padding: 8px 12px !important; 
+        font-size: 10px !important; 
+        white-space: nowrap !important;
+    }
+
+    /* FIX HERO CARD: Logo & Teks Sejajar Horizontal */
+    .hero-card { 
+        padding: 20px !important; 
+        min-height: unset !important;
+        height: auto !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .hero-logo-wrapper { 
+        display: flex !important;
+        flex-direction: row !important; /* Logo di kiri, Teks di kanan */
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    .hero-icon { 
+        width: 60px !important; /* Ukuran logo pas di samping teks */
+        height: auto !important; 
+    }
+
+    .main-logo-text { 
+        font-size: 2.2rem !important;
+        line-height: 1 !important;
+    }
+
+    /* FIX LOGO GRID: Anti Lonjong/Gepeng */
     .logo-grid-top {
-        grid-template-columns: 1fr !important; /* Satu kolom biar lebar */
+        grid-template-columns: 1fr !important; 
         gap: 15px !important;
     }
 
     .sub-card {
-        min-height: 180px !important; /* Pendekin tingginya biar gak lonjong */
+        min-height: 160px !important; /* Pendekin biar proporsional kotak */
         height: auto !important;
         padding: 20px !important;
-        justify-content: center !important; /* Biar isi di tengah pas */
+        justify-content: center !important;
     }
 
     .img-container, .logo-type-content {
-        height: 100px !important; /* Kecilin kontainer gambar biar proporsional */
+        height: 90px !important; /* Wadah logo diperkecil */
         margin: 5px 0 !important;
     }
 
     .logo-type-font {
-        font-size: 1.8rem !important; /* Sesuaikan ukuran teks Beat Boost */
+        font-size: 1.6rem !important;
     }
 
-    /* 2. Fix Foto Mockup (Biar Gak Lonjong) */
+    /* FIX MOCKUP: Foto Gak Lonjong & Gak Gepeng */
     .mockup-grid {
         grid-template-columns: 1fr !important;
         gap: 15px !important;
     }
 
     .mock-item, .mock-item.tall, .mock-item.wide {
-        height: 220px !important; /* Pendekin tinggi foto biar gak lonjong ke bawah */
+        height: 220px !important; /* Tinggi standar foto di HP */
         grid-row: span 1 !important;
         grid-column: span 1 !important;
         border-radius: 25px !important;
     }
 
     .mock-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Pastikan gambar gak ketarik (distorsi) */
+        object-fit: cover !important; /* Foto gak bakal ketarik/penyet */
     }
 
-    /* 3. Fix Hero Card (Logo & Teks Sejajar) */
-    .hero-card {
-        padding: 20px !important;
-        min-height: unset !important;
-        height: auto !important;
+    /* FIX TYPOGRAFI & PALETTE: Biar gak meluap */
+    .typo-flex { 
+        flex-direction: column !important; 
+        gap: 30px; 
+    }
+    
+    .font-1 .aa, .font-2 .aa { 
+        font-size: 3.5rem !important; 
     }
 
-    .hero-logo-wrapper {
-        flex-direction: row !important; /* Tetap horizontal */
-        justify-content: center !important;
-        gap: 15px !important;
-    }
-
-    .hero-icon {
-        width: 60px !important; /* Kecilin dikit lagi biar pas samping teks */
-    }
-
-    .main-logo-text {
-        font-size: 2.2rem !important;
-    }
-
-    /* 4. Fix Navigasi Pill (Biar gak tumpuk) */
-    .nav-pill-wrapper {
-        flex-wrap: wrap;
-        justify-content: center;
-        border-radius: 20px;
-    }
-
-    .nav-pill-item {
-        padding: 6px 10px !important;
-        font-size: 10px !important;
+    .circle { 
+        width: 45px !important; 
+        height: 45px !important; 
     }
 }
