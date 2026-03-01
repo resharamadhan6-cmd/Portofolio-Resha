@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beat Boost - Branding Detail</title>
+    <link rel="stylesheet" href="minuman.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="bg-animation"></canvas>
+
+    <div id="detail-overlay" class="overlay-blur" onclick="closeDetail()"></div>
+
+    <div class="page-wrapper">
+        <header class="detail-header">
+            <a href="index.html" class="btn-kembali">← KEMBALI</a>
+            
+            <nav class="nav-pill-wrapper">
+                <a href="ecofold.html" class="nav-pill-item">ECO FOLD</a>
+                <a href="minuman.html" class="nav-pill-item active">BEAT BOOST</a>
+            </nav>
+
+            <div class="header-spacer"></div>
+        </header>
+
+        <section class="hero-card reveal">
+            <div class="hero-logo-wrapper">
+                <img src="image/logo/minuman/logo atas.png" alt="Logo Utama" class="hero-icon">
+                <h1 class="main-logo-text">Beat Boost</h1>
+            </div>
+        </section>
+
+        <section class="logo-grid-top">
+            <div class="sub-card reveal" onclick="openDetail(this)">
+                <small>LOGO TYPE</small>
+                <div class="logo-type-content">
+                    <h2 class="logo-type-font">Beat<br>Boost</h2>
+                </div>
+                <div class="brand-description">
+                    <p>Typography utama menggunakan font <strong>Canastra</strong> yang dimodifikasi untuk memberikan kesan retro-modern.</p>
+                </div>
+            </div>
+
+            <div class="sub-card green reveal" style="transition-delay: 0.1s;" onclick="openDetail(this)">
+                <small>SUBMARK</small>
+                <div class="img-container">
+                    <img src="image/logo/minuman/submark.png" alt="Submark">
+                </div>
+                <div class="brand-description">
+                    <p>Submark ini digunakan untuk elemen dekoratif kecil seperti tutup botol atau stiker merchandise.</p>
+                </div>
+            </div>
+
+            <div class="sub-card orange reveal" style="transition-delay: 0.2s;" onclick="openDetail(this)">
+                <small>BRANDMARK</small>
+                <div class="img-container">
+                    <img src="image/logo/minuman/logo mark.png" alt="Brandmark">
+                </div>
+                <div class="brand-description">
+                    <p>Logo Mark melambangkan kesegaran yang meledak dan energi instan.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="palette-card reveal">
+            <small class="section-label">COLOR PALETTE</small>
+            <div class="colors-wrapper">
+                <div class="color-item"><div class="circle" style="background: #ffa500;"></div><span>#ffa500</span></div>
+                <div class="color-item"><div class="circle" style="background: #f4f0e2;"></div><span>#f4f0e2</span></div>
+                <div class="color-item"><div class="circle" style="background: #6ac109;"></div><span>#6ac109</span></div>
+                <div class="color-item"><div class="circle" style="background: #f2d585;"></div><span>#f2d585</span></div>
+            </div>
+        </section>
+
+        <section class="typo-card reveal">
+            <small class="section-label">TYPOGRAFI</small>
+            <div class="typo-flex">
+                <div class="typo-item font-1">
+                    <div class="aa">Aa</div>
+                    <div class="font-info"><strong>Geometria medium</strong><p>ABCDEFGHIJKLMN...</p></div>
+                </div>
+                <div class="typo-item font-2">
+                    <div class="aa">Aa</div>
+                    <div class="font-info"><strong>Canastra</strong><p>ABCDEFGHIJKLMN...</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mockup-grid">
+            <div class="mock-item tall reveal"><img src="image/logo/minuman/mokup 1.jpg" alt="Mockup 1"></div>
+            <div class="mock-item wide reveal"><img src="image/logo/minuman/mokup 2.jpg" alt="Mockup 2"></div>
+            <div class="mock-item reveal"><img src="image/logo/minuman/produk kemasan.png.jpg" alt="Mockup 3"></div>
+            <div class="mock-item reveal"><img src="image/logo/minuman/preview minuman.jpg" alt="Mockup 4"></div>
+        </section>
+    </div>
+
+    <script src="minuman.js"></script>
+</body>
+</html>
