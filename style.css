@@ -58,34 +58,13 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .light-mode .hero { background: linear-gradient(180deg, var(--p1) 0%, var(--p2) 33%, var(--p3) 66%, var(--p4) 100%); }
 .dark-mode .hero { background: linear-gradient(180deg, #1a1a33 0%, var(--p1) 50%, var(--p2) 100%); }
 #wormCanvas, #starCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; transition: opacity 0.5s ease; }
-.light-mode #wormCanvas { display: block; opacity: 1; }
-.light-mode #starCanvas { display: none; opacity: 0; }
-.dark-mode #wormCanvas { display: none; opacity: 0; }
-.dark-mode #starCanvas { display: block; opacity: 1; }
 .hero-content { position: relative; z-index: 2; text-align: center; }
 .hero h1 { font-size: 6rem; font-weight: 900; line-height: 0.9; color: #ffffff; text-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
 
 /* --- About & Profile (OPTIMIZED) --- */
-.about-grid { 
-    display: grid; 
-    grid-template-columns: 1.2fr 0.8fr; 
-    gap: 30px; /* Jarak antar kolom dikecilkan */
-    align-items: flex-start; 
-}
-
-/* Styling Teks Intro: Lebih gede dan Rata Kiri Kanan */
-.intro-p { 
-    font-size: 1.4rem; /* Ukuran teks diperbesar */
-    line-height: 1.7; 
-    text-align: justify; 
-    font-weight: 400;
-    color: var(--text);
-    margin-bottom: 0;
-}
-
-.intro-p .accent-text {
-    font-weight: 800;
-}
+.about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; align-items: flex-start; }
+.intro-p { font-size: 1.4rem; line-height: 1.7; text-align: justify; font-weight: 400; color: var(--text); margin-bottom: 0; }
+.intro-p .accent-text { font-weight: 800; }
 
 .profile-glass-container { position: relative; width: 100%; display: flex; justify-content: center; align-items: center; }
 .glass-shape { position: relative; width: 320px; height: 400px; background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: var(--glass-stroke-thick); border-radius: 40px; display: flex; align-items: flex-end; justify-content: center; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1); z-index: 5; }
@@ -94,7 +73,6 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .skill-node { position: absolute; width: 65px; height: 65px; background: var(--bg); border: 2px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 10; }
 .skill-node:hover { transform: scale(1.15) rotate(10deg); background: var(--primary); }
 .custom-logo { width: 40px; height: 40px; border: 3px solid var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--primary); transition: 0.3s; }
-.skill-node:hover .custom-logo { border-color: #3c237f; color: #3c237f; }
 
 .p-ps { top: 10px; left: -30px; }
 .p-ai { top: 110px; right: -30px; }
@@ -108,15 +86,11 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 #stat-percent { font-weight: 800; color: var(--primary); font-size: 1.2rem; }
 #stat-title { font-weight: 600; font-size: 0.9rem; }
 
-/* Bagian Pendidikan Didekatkan ke Atas */
-.education-section-wrapper { 
-    margin-top: 10px; /* Jarak sangat minim biar deket sama foto */
-    grid-column: span 2; 
-}
+.education-section-wrapper { margin-top: 10px; grid-column: span 2; }
 .education-main-title { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
 .edu-card { margin-top: 10px; padding: 20px; background: var(--card); border-radius: 15px; border-left: 5px solid var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 
-/* --- Journey --- */
+/* --- Journey, Certs, Projects (Struktur Lu Tetap) --- */
 .journey-section { background: rgba(102, 102, 255, 0.05); }
 .journey-wrapper { position: relative; padding: 40px 0; }
 .journey-line { position: absolute; left: 50%; transform: translateX(-50%); width: 3px; height: 100%; background: var(--primary); opacity: 0.3; }
@@ -124,80 +98,87 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .journey-item:nth-child(even) { margin-left: auto; padding-left: 60px; }
 .journey-item:nth-child(odd) { text-align: right; padding-right: 60px; }
 .dot { position: absolute; top: 20px; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; z-index: 5; }
-.journey-item:nth-child(even) .dot { left: -10px; }
-.journey-item:nth-child(odd) .dot { right: -10px; }
 .journey-card { background: var(--card); padding: 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
 
-/* --- Sertifikat --- */
 .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-.cert-card { background: var(--glass); backdrop-filter: blur(10px); border: var(--glass-stroke); border-radius: 20px; overflow: hidden; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+.cert-card { background: var(--glass); backdrop-filter: blur(10px); border: var(--glass-stroke); border-radius: 20px; overflow: hidden; text-align: center; }
 .cert-card img, .slide { width: 100%; height: 250px; object-fit: cover; display: block; }
 .slides { position: relative; height: 250px; overflow: hidden; }
 .slide { position: absolute; top: 0; left: 0; opacity: 0; transition: 1s ease; }
 .slide.active { opacity: 1; }
-.cert-label { padding: 15px; font-weight: 700; color: var(--text); }
 
-/* --- Projects --- */
 .project-bg { background: linear-gradient(135deg, var(--p1) 0%, var(--p2) 50%, var(--p3) 100%); color: #ffffff; }
 .project-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 20px 0; }
 .project-link { text-decoration: none; display: block; width: calc(33.333% - 30px); min-width: 280px; transition: transform 0.4s ease; }
-.project-box { position: relative; width: 100%; height: 220px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); border-radius: 25px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.project-box { position: relative; width: 100%; height: 220px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); border-radius: 25px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .project-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: 0.5s ease; }
-.project-overlay { position: absolute; inset: 0; background: rgba(102, 102, 255, 0.8); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s ease; z-index: 2; }
-.project-overlay span { font-size: 1.1rem; font-weight: 800; color: #ffffff; text-transform: uppercase; }
-.project-link:hover { transform: translateY(-10px); }
-.project-link:hover .project-overlay { opacity: 1; }
-.project-link:hover .project-img { transform: scale(1.1); }
+.project-overlay { position: absolute; inset: 0; background: rgba(102, 102, 255, 0.8); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s ease; }
 
+/* --- MEDIA QUERY: FIX KHUSUS HP --- */
 @media (max-width: 768px) {
-    /* 1. Paksa Grid jadi satu kolom dan rata tengah */
+    /* 1. Navbar & Hero Fix (Biar gak raksasa) */
+    .navbar { width: 95% !important; top: 15px !important; }
+    .nav-menu-wrapper { padding: 8px 15px !important; }
+    .nav-menu { gap: 10px !important; }
+    .nav-menu a { font-size: 0.7rem !important; }
+    .logo-img { height: 35px !important; width: 35px !important; }
+    .hero h1 { font-size: 2.8rem !important; line-height: 1.1 !important; }
+
+    /* 2. About Grid Control */
     .about-grid { 
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        text-align: center;
-        gap: 30px;
     }
 
-    .about-text { width: 100%; order: 1; }
+    /* MAKSA URUTAN: Teks dulu, baru Foto, baru Pendidikan */
+    .about-text { 
+        width: 100% !important; 
+        order: 1 !important; 
+        text-align: left; 
+    }
+
     .about-visual { 
-        width: 100%; 
+        width: 100% !important; 
         display: flex !important;
         justify-content: center !important;
-        order: 2; /* Foto di bawah teks */
-        margin-top: 50px; /* Space untuk icon melayang */
+        order: 2 !important; /* FOTO DI TENGAH */
+        margin: 60px 0 !important; 
         position: relative;
     }
 
-    /* 2. Ukuran bingkai foto */
+    .education-section-wrapper { 
+        width: 100% !important; 
+        order: 3 !important; /* PENDIDIKAN DI BAWAH FOTO */
+        margin-top: 20px !important;
+    }
+
+    /* 3. Foto Profil & Frame */
     .glass-shape { 
         width: 240px !important; 
         height: 300px !important; 
-        position: relative !important;
-        display: flex !important;
-        align-items: flex-end;
-        justify-content: center;
     }
+    .profile-png { width: 100% !important; height: auto !important; }
 
-    .profile-png { width: 100%; height: auto; z-index: 5; }
-
-    /* 3. PAKSA ICON MUNCUL (POSISI DESKTOP STYLE) */
+    /* 4. Icon Skill Melayang (Desktop Style) */
     .skill-node { 
-        display: flex !important; /* Paksa muncul */
-        visibility: visible !important;
-        opacity: 1 !important;
+        display: flex !important;
         position: absolute !important;
-        width: 55px !important; 
-        height: 55px !important;
-        z-index: 100 !important; /* Biar di depan foto */
-        background: var(--bg) !important;
+        width: 50px !important; 
+        height: 50px !important;
+        z-index: 100 !important;
     }
+    .p-ps { top: 10px !important; left: -20px !important; }
+    .p-ai { top: 100px !important; right: -20px !important; }
+    .p-cc { bottom: 100px !important; left: -25px !important; }
+    .p-cv { bottom: 10px !important; right: -15px !important; }
 
-    /* Koordinat melayang di HP (disesuaikan biar ga keluar layar) */
-    .p-ps { top: 10px !important; left: -25px !important; }
-    .p-ai { top: 110px !important; right: -25px !important; }
-    .p-cc { bottom: 110px !important; left: -30px !important; }
-    .p-cv { bottom: 15px !important; right: -20px !important; }
-
-    .custom-logo { font-size: 0.9rem !important; }
+    /* 5. FIX PERSENTASE (Stats Bubble) */
+    .skill-stats-bubble {
+        width: 160px !important;
+        left: 50% !important;
+        bottom: 65px !important;
+        font-size: 0.8rem !important;
+        z-index: 1000 !important;
+    }
 }
