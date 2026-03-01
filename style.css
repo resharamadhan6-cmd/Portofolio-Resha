@@ -36,7 +36,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
-body { background-color: var(--bg); color: var(--text); transition: all 0.5s ease; width: 100%; }
+body { background-color: var(--bg); color: var(--text); transition: all 0.5s ease; width: 100%; overflow-x: hidden; }
 
 .container { width: 88%; max-width: 1200px; margin: auto; }
 .section { padding: 100px 0; position: relative; }
@@ -206,11 +206,10 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
     box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
 }
 
-/* Memastikan gambar sertifikat tidak pecah keluar */
 .cert-card img, .slide { 
     width: 100%; 
     height: 250px; 
-    object-fit: cover; /* Crop otomatis agar rapi */
+    object-fit: cover; 
     display: block;
 }
 
@@ -219,7 +218,7 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .slide.active { opacity: 1; }
 .cert-label { padding: 15px; font-weight: 700; color: var(--text); }
 
-/* --- Projects (FIXED & LINK COMPATIBLE) --- */
+/* --- Projects --- */
 .project-bg { 
     background: linear-gradient(135deg, var(--p1) 0%, var(--p2) 50%, var(--p3) 100%); 
     color: #ffffff; 
@@ -229,22 +228,21 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 
-    gap: 30px; /* Jarak antar kotak lebih lega */
+    gap: 30px; 
     padding: 20px 0;
 }
 
-/* Ini kunci perbaikannya: Link harus punya ukuran, Box harus 100% */
 .project-link {
     text-decoration: none;
     display: block;
-    width: calc(33.333% - 30px); /* 3 kolom */
-    min-width: 280px; /* Biar gak kekecilan */
+    width: calc(33.333% - 30px); 
+    min-width: 280px; 
     transition: transform 0.4s ease;
 }
 
 .project-box { 
     position: relative;
-    width: 100%; /* Mengikuti ukuran project-link */
+    width: 100%; 
     height: 220px; 
     background: rgba(255,255,255,0.15); 
     backdrop-filter: blur(10px);
@@ -260,17 +258,14 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .project-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Gambar tetap rapi di dalam kotak */
+    object-fit: cover; 
     display: block;
     transition: 0.5s ease;
 }
 
 .project-overlay {
     position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
+    inset: 0;
     background: rgba(102, 102, 255, 0.8);
     display: flex; 
     align-items: center; 
@@ -285,119 +280,51 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
     font-weight: 800; 
     color: #ffffff; 
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-/* Hover Effect */
-.project-link:hover {
-    transform: translateY(-10px);
-}
+.project-link:hover { transform: translateY(-10px); }
+.project-link:hover .project-overlay { opacity: 1; }
+.project-link:hover .project-img { transform: scale(1.1); }
 
-.project-link:hover .project-overlay { 
-    opacity: 1; 
-}
+/* ==========================================================
+   BAGIAN RESPONSIVE (TAMBAHKAN DI SINI TANPA POTONG ATAS)
+   ========================================================== */
 
-.project-link:hover .project-img { 
-    transform: scale(1.1); 
-}
-
-/* --- Responsive Update --- */
-@media (max-width: 1024px) {
-    .project-link {
-        width: calc(50% - 30px); /* 2 kolom di tablet */
-    }
-}
-
-@media (max-width: 768px) {
-    .project-link { 
-        width: 100%; /* 1 kolom di HP */
-    }
-    .hero h1 { font-size: 3.5rem; }
-    .about-grid { grid-template-columns: 1fr; }
-}
-/* --- Tambahan CSS Responsif Tanpa Merusak Kode Asli --- */
-
-/* Tombol Menu Mobile */
-.mobile-menu-btn {
-    background: var(--primary);
-    color: white;
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    z-index: 1001;
-}
-
-/* TABLET (Lebar layar di bawah 1024px) */
+/* Tablet & HP: Mencegah Layar Bocor */
 @media (max-width: 1024px) {
     .hero h1 { font-size: 4.5rem; }
-    .about-grid { gap: 30px; }
-    .project-link { width: calc(50% - 30px); } /* Jadi 2 kolom */
+    .project-link { width: calc(50% - 30px); }
     .cert-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* HANDPHONE (Lebar layar di bawah 768px) */
 @media (max-width: 768px) {
-    .mobile-menu-btn { display: flex !important; } /* Munculkan tombol menu */
+    /* Navbar Tetap Desktop Style tapi Mengecil */
+    .navbar { width: 95%; top: 15px; }
+    .nav-menu-wrapper { padding: 8px 15px; }
+    .nav-menu { gap: 12px; }
+    .nav-menu a { font-size: 0.75rem; }
+    .logo-img { height: 35px; width: 35px; }
+    .theme-btn { width: 35px; height: 35px; font-size: 1rem; }
 
-    /* Sembunyikan Navigasi Asli & Ubah jadi Menu Dropdown */
-    .nav-menu-wrapper {
-        position: fixed;
-        top: 85px;
-        left: -110%; /* Sembunyi di kiri */
-        width: 90%;
-        background: var(--glass);
-        backdrop-filter: blur(20px);
-        transition: 0.5s ease-in-out;
-        border-radius: 25px;
-        padding: 20px;
-        z-index: 999;
-    }
-
-    /* Saat menu aktif */
-    .nav-menu-wrapper.active { left: 5%; }
-
-    .nav-menu {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    .nav-left, .nav-right { flex: none; }
-
-    /* Hero */
-    .hero h1 { font-size: 3rem; }
-
-    /* About Section */
-    .about-grid { 
-        grid-template-columns: 1fr; /* Jadi satu baris ke bawah */
-        text-align: center; 
-    }
+    /* Layout Content */
+    .hero h1 { font-size: 2.8rem; line-height: 1.1; }
+    .hero-content { padding: 0 15px; }
+    .about-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
     
-    .profile-glass-container { margin-top: 50px; }
-    .glass-shape { margin: auto; width: 280px; height: 380px; }
+    /* About & Skills Fix */
+    .glass-shape { width: 260px; height: 360px; margin: auto; }
+    .skill-node { width: 50px; height: 50px; }
+    .custom-logo { width: 30px; height: 30px; font-size: 0.8rem; }
+    .p-ps { left: -10px; } .p-ai { right: -10px; }
+    .p-cc { left: -15px; } .p-cv { right: -10px; }
 
-    /* Atur Skill Node agar tidak keluar layar HP */
-    .p-ps { left: -10px; }
-    .p-ai { right: -10px; }
-    .p-cc { left: -15px; }
-    .p-cv { right: -10px; }
-
-    /* Journey Section (Garis pindah ke kiri) */
+    /* Journey Fix */
     .journey-line { left: 20px; transform: none; }
-    .journey-item { 
-        width: 100%; 
-        text-align: left !important; 
-        padding-left: 50px !important; 
-        padding-right: 0 !important; 
-    }
+    .journey-item { width: 100%; text-align: left !important; padding-left: 50px !important; padding-right: 0 !important; margin-bottom: 30px; }
     .dot { left: 12px !important; right: auto !important; }
+    .journey-card { padding: 20px; }
 
-    /* Sertifikat & Project Jadi 1 Kolom */
+    /* Grid Fix */
     .cert-grid { grid-template-columns: 1fr; }
     .project-link { width: 100%; }
 }
