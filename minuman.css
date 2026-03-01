@@ -267,82 +267,81 @@ body {
     }
 }
 
-/* 2. MOBILE MODE (HP - max-width: 768px) */
+/* =========================================
+   FIX TOTAL: ANTI LONJONG & ANTI GEPENG (HP)
+   ========================================= */
 @media (max-width: 768px) {
-    body { 
-        padding: 15px; 
-    }
-    
-    /* Header Fix */
-    .detail-header { 
-        flex-direction: column; 
-        gap: 15px; 
-    }
-    
-    .header-spacer { 
-        display: none; 
-    }
-
-    /* 2a. FIX HERO LOGO: SEJAJAR HORIZONTAL & TIDAK GEPENG */
-    .hero-card { 
-        padding: 30px 20px !important; 
-        min-height: unset !important; /* Hapus min-height kaku */
-        height: auto !important; /* Biar kotaknya menyesuaikan isi */
-        display: flex !important;
-        justify-content: center !important; /* Tengahkan konten kaku */
-    }
-
-    .hero-logo-wrapper { 
-        display: flex !important;
-        flex-direction: row !important; /* PAKSA HORIZONTAL (KIRI-KANAN) */
-        align-items: center !important; /* Rata tengah vertikal */
-        gap: 25px !important; /* Kecilkan gap */
-        width: 100% !important;
-        justify-content: center !important;
-    }
-
-    /* Sesuaikan Ukuran Logo biar gak kegedean samping teks */
-    .hero-icon { 
-        width: 80px !important; 
-        height: auto !important; 
-    }
-
-    /* Sesuaikan Teks biar proporsional horizontal */
-    .main-logo-text { 
-        font-size: 2.8rem !important; 
-    }
-
-    /* 2b. Logo Grid & Mockup jadi 1 kolom (Anti Gepeng) */
-    .logo-grid-top, .mockup-grid { 
-        grid-template-columns: 1fr !important; 
+    /* 1. Fix Kotak Sub-Card (Logo Type, Submark, Brandmark) */
+    .logo-grid-top {
+        grid-template-columns: 1fr !important; /* Satu kolom biar lebar */
+        gap: 15px !important;
     }
 
     .sub-card {
-        width: 100% !important;
+        min-height: 180px !important; /* Pendekin tingginya biar gak lonjong */
+        height: auto !important;
+        padding: 20px !important;
+        justify-content: center !important; /* Biar isi di tengah pas */
     }
 
-    .mock-item, .mock-item.tall, .mock-item.wide { 
-        height: 250px !important; 
+    .img-container, .logo-type-content {
+        height: 100px !important; /* Kecilin kontainer gambar biar proporsional */
+        margin: 5px 0 !important;
+    }
+
+    .logo-type-font {
+        font-size: 1.8rem !important; /* Sesuaikan ukuran teks Beat Boost */
+    }
+
+    /* 2. Fix Foto Mockup (Biar Gak Lonjong) */
+    .mockup-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .mock-item, .mock-item.tall, .mock-item.wide {
+        height: 220px !important; /* Pendekin tinggi foto biar gak lonjong ke bawah */
         grid-row: span 1 !important;
         grid-column: span 1 !important;
+        border-radius: 25px !important;
     }
 
-    /* 2c. Palette & Typografi tetap tumpuk bawah (Anti Overflow) */
-    .colors-wrapper { 
-        gap: 15px !important; 
-    }
-    
-    .circle { 
-        width: 45px !important; 
-        height: 45px !important; 
+    .mock-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Pastikan gambar gak ketarik (distorsi) */
     }
 
-    .typo-flex { 
-        flex-direction: column !important; 
-        gap: 30px; 
+    /* 3. Fix Hero Card (Logo & Teks Sejajar) */
+    .hero-card {
+        padding: 20px !important;
+        min-height: unset !important;
+        height: auto !important;
     }
-    
-    .font-1 .aa, .font-2 .aa { 
-        font-size: 4rem !important; 
+
+    .hero-logo-wrapper {
+        flex-direction: row !important; /* Tetap horizontal */
+        justify-content: center !important;
+        gap: 15px !important;
+    }
+
+    .hero-icon {
+        width: 60px !important; /* Kecilin dikit lagi biar pas samping teks */
+    }
+
+    .main-logo-text {
+        font-size: 2.2rem !important;
+    }
+
+    /* 4. Fix Navigasi Pill (Biar gak tumpuk) */
+    .nav-pill-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 20px;
+    }
+
+    .nav-pill-item {
+        padding: 6px 10px !important;
+        font-size: 10px !important;
     }
 }
