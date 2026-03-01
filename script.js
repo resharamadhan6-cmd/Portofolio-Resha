@@ -24,21 +24,24 @@ function showSkill(element, name, percentage) {
     const title = document.getElementById('stat-title');
     const percentTxt = document.getElementById('stat-percent');
 
+    // Tutup dulu jika sedang terbuka untuk memicu animasi ulang
     bubble.classList.remove('active');
     
     setTimeout(() => {
         title.innerText = name;
         percentTxt.innerText = percentage;
-        fill.style.width = '0%'; 
+        fill.style.width = '0%'; // Reset bar ke 0
         
         bubble.classList.add('active');
         
+        // Animasi bar mengisi setelah bubble muncul
         setTimeout(() => {
             fill.style.width = percentage;
         }, 200);
     }, 150);
 }
 
+// Menutup bubble saat klik di area luar profil
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.skill-node') && !e.target.closest('.skill-stats-bubble')) {
         document.getElementById('skill-stats').classList.remove('active');
@@ -56,7 +59,7 @@ setInterval(() => {
     }
 }, 3000);
 
-// --- Efek Cacing (Light Mode) ---
+// --- Efek Cacing (Neon Worms - Light Mode) ---
 const wormCanvas = document.getElementById('wormCanvas');
 const wormCtx = wormCanvas.getContext('2d');
 let wormW, wormH, worms = [];
@@ -106,7 +109,7 @@ function animateWorms() {
     requestAnimationFrame(animateWorms);
 }
 
-// --- Efek Bintang (Dark Mode) ---
+// --- Efek Bintang (Starry Night - Dark Mode) ---
 const starCanvas = document.getElementById('starCanvas');
 const starCtx = starCanvas.getContext('2d');
 let starW, starH, stars = [];
@@ -173,5 +176,27 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
         if (target) {
             window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
         }
+    });
+});
+
+// Tambahkan ini di bagian paling bawah script.js kamu
+const mobileToggle = document.getElementById('mobile-toggle');
+const navWrapper = document.getElementById('nav-wrapper');
+
+if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+        navWrapper.classList.toggle('active');
+        // Animasi icon menu ke close (X)
+        const icon = mobileToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+}
+
+// Tutup menu otomatis kalau link diklik
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navWrapper.classList.remove('active');
+        if(mobileToggle) mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
     });
 });
