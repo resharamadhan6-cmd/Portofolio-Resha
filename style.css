@@ -119,20 +119,17 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .project-link:hover .project-img { transform: scale(1.1); }
 /* --- MEDIA QUERY: FIX KHUSUS HP --- */
 @media (max-width: 768px) {
-    /* 1. Navbar & Hero Fix */
     .navbar { width: 95% !important; top: 15px !important; }
     .nav-menu-wrapper { padding: 8px 15px !important; }
     .nav-menu { gap: 10px !important; }
     .nav-menu a { font-size: 0.7rem !important; }
     .hero h1 { font-size: 2.8rem !important; line-height: 1.1 !important; }
 
-    /* 2. About & Profile Order */
     .about-grid { display: flex !important; flex-direction: column !important; align-items: center !important; }
     .about-text { width: 100% !important; order: 1 !important; text-align: left; }
     .about-visual { width: 100% !important; display: flex !important; justify-content: center !important; order: 2 !important; margin: 60px 0 !important; position: relative; }
     .education-section-wrapper { width: 100% !important; order: 3 !important; margin-top: 20px !important; }
 
-    /* 3. Skill & Stats Fix */
     .skill-node { display: flex !important; position: absolute !important; width: 50px !important; height: 50px !important; z-index: 100 !important; }
     .p-ps { top: 10px !important; left: -20px !important; }
     .p-ai { top: 100px !important; right: -20px !important; }
@@ -140,52 +137,17 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
     .p-cv { bottom: 10px !important; right: -15px !important; }
     .skill-stats-bubble { width: 160px !important; left: 50% !important; bottom: 65px !important; font-size: 0.8rem !important; z-index: 1000 !important; }
 
-    /* 4. PENGALAMAN (JOURNEY) - RESET TOTAL */
     .journey-wrapper { padding: 20px 0 !important; }
     .journey-line { left: 15px !important; transform: none !important; margin: 0 !important; }
-    .journey-item { 
-        display: block !important;
-        width: 100% !important; /* Paksa lebar penuh */
-        max-width: 100% !important;
-        padding-left: 40px !important; 
-        padding-right: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        text-align: left !important;
-        margin-bottom: 30px !important;
-    }
-    .journey-item:nth-child(odd), 
-    .journey-item:nth-child(even) { 
-        width: 100% !important;
-        text-align: left !important;
-        padding-left: 45px !important;
-        margin-left: 0 !important;
-    }
+    .journey-item { display: block !important; width: 100% !important; max-width: 100% !important; padding-left: 40px !important; padding-right: 0 !important; margin-left: 0 !important; text-align: left !important; margin-bottom: 30px !important; }
+    .journey-item:nth-child(odd), .journey-item:nth-child(even) { width: 100% !important; text-align: left !important; padding-left: 45px !important; margin-left: 0 !important; }
     .dot { left: 5px !important; right: auto !important; top: 25px !important; }
     .journey-card { width: 100% !important; padding: 20px !important; }
 
-    /* 5. SERTIFIKAT - PAKSA 1 KOLOM */
-    .cert-grid { 
-        display: block !important; /* Ubah dari grid ke block biar gampang */
-        width: 100% !important;
-    }
-    .cert-card { 
-        width: 100% !important; 
-        margin-bottom: 25px !important; /* Kasih jarak antar sertifikat */
-        display: block !important;
-    }
-    .cert-card img, .slides { 
-        width: 100% !important;
-        height: auto !important; 
-        min-height: 200px !important; 
-        object-fit: contain !important; /* Biar gambar sertifikat gak kepotong */
-    }
+    .cert-grid { display: block !important; width: 100% !important; }
+    .cert-card { width: 100% !important; margin-bottom: 25px !important; display: block !important; }
+    .cert-card img, .slides { width: 100% !important; height: auto !important; min-height: 200px !important; object-fit: contain !important; }
 
-    /* 6. PROJECT FIX */
     .project-grid { display: block !important; }
-    .project-link { 
-        width: 100% !important; 
-        display: block !important;
-        margin-bottom: 20px !important;
-    }
+    .project-link { width: 100% !important; display: block !important; margin-bottom: 20px !important; }
 }
