@@ -150,56 +150,58 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .project-link:hover .project-img { transform: scale(1.1); }
 
 @media (max-width: 768px) {
-    /* Navbar lebih ramping */
-    .navbar { width: 98%; top: 10px; }
-    .nav-menu-wrapper { padding: 5px 10px; }
-    .nav-menu { gap: 8px; }
-    .nav-menu a { font-size: 0.65rem; }
-
-    /* Judul Section */
-    .section-title { font-size: 2rem; margin-bottom: 30px; }
-
-    /* About Layout Fix */
+    /* 1. Nengahin Grid & Teks */
     .about-grid { 
         display: flex;
         flex-direction: column; 
-        gap: 25px;
-        text-align: left;
+        align-items: center; 
+        gap: 20px;
     }
 
     .intro-p { 
         font-size: 1rem; 
-        line-height: 1.6; 
-        text-align: left !important; /* WAJIB LEFT biar gak bolong kayak di foto */
-        word-spacing: normal;
-        hyphens: none;
+        text-align: left; /* Tetap rata kiri biar rapi */
+        line-height: 1.6;
     }
 
-    /* Foto Profil di bawah teks */
+    /* 2. Area Visual Auto Center */
     .about-visual { 
         display: flex; 
         justify-content: center;
-        margin: 10px 0 30px 0;
+        align-items: center;
+        width: 100%;
+        margin: 50px 0; /* Kasih space buat icon melayang */
     }
 
+    /* 3. Ukuran Frame Foto di HP */
     .glass-shape { 
-        width: 200px; 
-        height: 260px; 
-        border-radius: 20px; 
+        width: 220px; 
+        height: 280px; 
+        border-radius: 25px;
     }
-    
-    .profile-png { width: 100%; }
 
-    /* Matikan icon skill di HP karena ganggu teks & muka */
-    .skill-node { display: none !important; }
+    /* 4. POSISI ICON SKILL (MIRIP DESKTOP) */
+    .skill-node { 
+        display: flex !important; /* Munculkan kembali */
+        width: 45px; /* Lebih kecil biar pas di HP */
+        height: 45px;
+    }
 
-    /* Pendidikan Section */
+    .custom-logo { 
+        width: 28px; 
+        height: 28px; 
+        font-size: 0.75rem; 
+    }
+
+    /* Koordinat Melayang (Mirip Desktop tapi skala HP) */
+    .p-ps { top: 5px; left: -20px; }
+    .p-ai { top: 70px; right: -20px; }
+    .p-cc { bottom: 80px; left: -25px; }
+    .p-cv { bottom: 15px; right: -15px; }
+
+    /* 5. Pendidikan Section */
     .education-section-wrapper { 
-        margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(0,0,0,0.05);
+        margin-top: 30px;
+        width: 100%;
     }
-    
-    .education-main-title { font-size: 1.4rem; justify-content: center; }
-    .edu-card { padding: 15px; text-align: center; }
 }
