@@ -250,39 +250,87 @@ body {
 /* =========================================
    MEDIA QUERY: HP (FIX TOTAL)
    ========================================= */
+/* =========================================
+   FIX TOTAL UNTUK HP (RESPONSIVE)
+   ========================================= */
 @media (max-width: 768px) {
-    body { padding: 15px; }
-
-    /* Header Fix */
-    .detail-header { flex-direction: column; gap: 15px; }
-    .header-spacer { display: none; }
-    
-    /* Hero Card Fix */
-    .hero-card { padding: 30px 20px; flex-direction: column; text-align: center; }
-    .hero-logo-wrapper { flex-direction: column; gap: 20px; justify-content: center; }
-    .hero-icon { width: 100px; }
-    .main-logo-text { font-size: 3rem; }
-
-    /* Grid Fix */
-    .logo-grid-top, .mockup-grid { grid-template-columns: 1fr; }
-    .mock-item, .mock-item.tall, .mock-item.wide { height: 250px; grid-column: auto; grid-row: auto; }
-
-    /* Typografi Fix (Biar Gak Kelebihan) */
-    .typo-flex { gap: 40px; flex-direction: column; }
-    .font-1 .aa, .font-2 .aa { font-size: 4rem; } /* Kecilkan AA di HP */
-    .typo-item { width: 100%; }
-
-    /* Modal Fix (Anti Kebablasan di HP) */
-    .sub-card.expanded {
-        width: 95% !important;
-        padding: 30px 20px !important;
-        border-radius: 30px !important;
+    /* 1. Reset Global Container */
+    body {
+        padding: 10px; /* Kurangi padding body biar gak makin sempit */
     }
-    
-    .logo-type-font { font-size: 2.2rem; }
-    
-    /* Palette Fix */
-    .colors-wrapper { gap: 15px; }
-    .circle { width: 45px; height: 45px; }
-    .color-item span { font-size: 10px; }
+
+    /* 2. Fix Typografi (Biar gak lewat batas) */
+    .typo-card {
+        padding: 25px 15px !important; /* Kecilkan padding kartu */
+    }
+
+    .typo-flex {
+        flex-direction: column !important; /* Paksa turun ke bawah, jangan ke samping */
+        gap: 40px !important;
+        align-items: center;
+    }
+
+    .font-1 .aa, .font-2 .aa {
+        font-size: 3.5rem !important; /* Perkecil ukuran 'Aa' secara drastis di HP */
+        line-height: 1;
+    }
+
+    .typo-item small {
+        font-size: 0.7rem !important; /* Kecilkan teks deskripsi font */
+        word-break: break-all; /* Biar teks alphabetnya gak bablas */
+    }
+
+    /* 3. Fix Color Palette (Biar gak kelebihan ke samping) */
+    .palette-card {
+        padding: 25px 15px !important;
+    }
+
+    .colors-wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* Bagi jadi 2 kolom saja */
+        gap: 20px !important;
+        justify-items: center;
+    }
+
+    .circle {
+        width: 45px !important; /* Kecilkan lingkaran warna */
+        height: 45px !important;
+    }
+
+    /* 4. Fix Modal / Sub-card Expanded (Biar pas di layar) */
+    .sub-card.expanded {
+        width: 92% !important; /* Kasih space dikit di kiri kanan */
+        max-height: 85vh !important; /* Biar gak mentok atas bawah banget */
+        padding: 30px 20px !important;
+        overflow-y: auto !important; /* Kalau kepanjangan bisa di-scroll */
+    }
+
+    .logo-type-font {
+        font-size: 1.8rem !important; /* Kecilkan teks 'Beat Boost' di dalem modal */
+    }
+
+    .brand-description {
+        font-size: 0.85rem !important;
+        padding: 12px !important;
+    }
+
+    /* 5. Fix Hero & Header */
+    .hero-card {
+        padding: 30px 15px !important;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-icon {
+        width: 80px !important;
+    }
+
+    .main-logo-text {
+        font-size: 2.5rem !important; /* Judul utama diperkecil */
+    }
+
+    .nav-pill-item {
+        padding: 6px 12px !important; /* Kecilkan tombol navigasi */
+        font-size: 9px !important;
+    }
 }
