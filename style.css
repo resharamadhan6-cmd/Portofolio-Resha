@@ -94,7 +94,7 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .skill-node { position: absolute; width: 65px; height: 65px; background: var(--bg); border: 2px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 10; }
 .skill-node:hover { transform: scale(1.15) rotate(10deg); background: var(--primary); }
 .custom-logo { width: 40px; height: 40px; border: 3px solid var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--primary); transition: 0.3s; }
-.skill-node:hover .custom-logo { border-color: #fff; color: #fff; }
+.skill-node:hover .custom-logo { border-color: #3c237f; color: #3c237f; }
 
 .p-ps { top: 10px; left: -30px; }
 .p-ai { top: 110px; right: -30px; }
@@ -150,58 +150,54 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .project-link:hover .project-img { transform: scale(1.1); }
 
 @media (max-width: 768px) {
-    /* 1. Nengahin Grid & Teks */
+    /* 1. Paksa Grid jadi satu kolom dan rata tengah */
     .about-grid { 
-        display: flex;
-        flex-direction: column; 
-        align-items: center; 
-        gap: 20px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 30px;
     }
 
-    .intro-p { 
-        font-size: 1rem; 
-        text-align: left; /* Tetap rata kiri biar rapi */
-        line-height: 1.6;
-    }
-
-    /* 2. Area Visual Auto Center */
+    .about-text { width: 100%; order: 1; }
     .about-visual { 
-        display: flex; 
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin: 50px 0; /* Kasih space buat icon melayang */
+        width: 100%; 
+        display: flex !important;
+        justify-content: center !important;
+        order: 2; /* Foto di bawah teks */
+        margin-top: 50px; /* Space untuk icon melayang */
+        position: relative;
     }
 
-    /* 3. Ukuran Frame Foto di HP */
+    /* 2. Ukuran bingkai foto */
     .glass-shape { 
-        width: 220px; 
-        height: 280px; 
-        border-radius: 25px;
+        width: 240px !important; 
+        height: 300px !important; 
+        position: relative !important;
+        display: flex !important;
+        align-items: flex-end;
+        justify-content: center;
     }
 
-    /* 4. POSISI ICON SKILL (MIRIP DESKTOP) */
+    .profile-png { width: 100%; height: auto; z-index: 5; }
+
+    /* 3. PAKSA ICON MUNCUL (POSISI DESKTOP STYLE) */
     .skill-node { 
-        display: flex !important; /* Munculkan kembali */
-        width: 45px; /* Lebih kecil biar pas di HP */
-        height: 45px;
+        display: flex !important; /* Paksa muncul */
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: absolute !important;
+        width: 55px !important; 
+        height: 55px !important;
+        z-index: 100 !important; /* Biar di depan foto */
+        background: var(--bg) !important;
     }
 
-    .custom-logo { 
-        width: 28px; 
-        height: 28px; 
-        font-size: 0.75rem; 
-    }
+    /* Koordinat melayang di HP (disesuaikan biar ga keluar layar) */
+    .p-ps { top: 10px !important; left: -25px !important; }
+    .p-ai { top: 110px !important; right: -25px !important; }
+    .p-cc { bottom: 110px !important; left: -30px !important; }
+    .p-cv { bottom: 15px !important; right: -20px !important; }
 
-    /* Koordinat Melayang (Mirip Desktop tapi skala HP) */
-    .p-ps { top: 5px; left: -20px; }
-    .p-ai { top: 70px; right: -20px; }
-    .p-cc { bottom: 80px; left: -25px; }
-    .p-cv { bottom: 15px; right: -15px; }
-
-    /* 5. Pendidikan Section */
-    .education-section-wrapper { 
-        margin-top: 30px;
-        width: 100%;
-    }
+    .custom-logo { font-size: 0.9rem !important; }
 }
