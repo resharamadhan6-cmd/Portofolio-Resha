@@ -266,109 +266,74 @@ body {
     }
 }
 
-/* 2. MOBILE MODE (HP - max-width: 768px) */
+/* =========================================
+   FIX NAVIGASI: KEMBALI & PILL HORIZONTAL
+   ========================================= */
 @media (max-width: 768px) {
-    body { 
-        padding: 15px; 
+    /* 1. Header Wrapper (Kembali + Pill) */
+    .detail-header {
+        flex-direction: row !important; /* Paksa tetap satu baris */
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 10px !important;
+        margin-bottom: 20px !important;
     }
 
-    /* FIX NAVIGASI PILL: Tetap Horizontal (Kiri-Kanan) */
-    .nav-pill-wrapper { 
+    /* 2. Tombol Kembali (Dikecilin biar gak makan space) */
+    .btn-kembali {
+        padding: 8px 12px !important; /* Kecilin padding */
+        font-size: 9px !important; /* Kecilin font */
+        min-width: fit-content !important;
+        white-space: nowrap !important; /* Biar teks gak turun */
+    }
+
+    /* 3. Navigasi Pill (Eco Fold & Beat Boost) */
+    .nav-pill-wrapper {
         display: flex !important;
-        flex-direction: row !important; /* Paksa horizontal */
-        flex-wrap: nowrap !important; /* Cegah turun ke bawah */
-        justify-content: center !important;
-        gap: 8px !important;
-        width: fit-content !important;
-        margin: 0 auto 20px auto !important;
-        padding: 5px 10px !important;
+        flex-direction: row !important; /* WAJIB Kiri-Kanan */
+        flex-wrap: nowrap !important; /* Anti tumpuk vertikal */
+        padding: 4px !important;
+        gap: 4px !important;
     }
 
-    .nav-pill-item { 
-        padding: 8px 12px !important; 
-        font-size: 10px !important; 
+    .nav-pill-item {
+        padding: 6px 10px !important; /* Kecilin tombol tab */
+        font-size: 9px !important; /* Font seragam dengan tombol kembali */
         white-space: nowrap !important;
     }
 
-    /* FIX HERO CARD: Logo & Teks Sejajar Horizontal */
-    .hero-card { 
-        padding: 20px !important; 
+    /* Spacer dihilangkan saja biar gak ganggu di HP */
+    .header-spacer {
+        display: none !important;
+    }
+
+    /* 4. Fix Hero Card (Sejajar & Proporsional) */
+    .hero-card {
+        padding: 20px 15px !important;
+        height: auto !important;
         min-height: unset !important;
-        height: auto !important;
-        display: flex !important;
-        justify-content: center !important;
     }
 
-    .hero-logo-wrapper { 
-        display: flex !important;
-        flex-direction: row !important; /* Logo di kiri, Teks di kanan */
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 15px !important;
-        width: 100% !important;
+    .hero-logo-wrapper {
+        flex-direction: row !important;
+        gap: 12px !important;
     }
 
-    .hero-icon { 
-        width: 60px !important; /* Ukuran logo pas di samping teks */
-        height: auto !important; 
+    .hero-icon {
+        width: 50px !important; /* Kecilin logo biar muat satu baris sama teks */
     }
 
-    .main-logo-text { 
-        font-size: 2.2rem !important;
-        line-height: 1 !important;
+    .main-logo-text {
+        font-size: 1.8rem !important; /* Teks Beat Boost disesuaikan */
     }
 
-    /* FIX LOGO GRID: Anti Lonjong/Gepeng */
-    .logo-grid-top {
-        grid-template-columns: 1fr !important; 
-        gap: 15px !important;
-    }
-
+    /* 5. Fix Kartu Submark dkk (Biar gak lonjong) */
     .sub-card {
-        min-height: 160px !important; /* Pendekin biar proporsional kotak */
-        height: auto !important;
-        padding: 20px !important;
-        justify-content: center !important;
+        min-height: 140px !important; /* Lebih pendek lagi biar kotak */
+        padding: 15px !important;
     }
 
     .img-container, .logo-type-content {
-        height: 90px !important; /* Wadah logo diperkecil */
-        margin: 5px 0 !important;
-    }
-
-    .logo-type-font {
-        font-size: 1.6rem !important;
-    }
-
-    /* FIX MOCKUP: Foto Gak Lonjong & Gak Gepeng */
-    .mockup-grid {
-        grid-template-columns: 1fr !important;
-        gap: 15px !important;
-    }
-
-    .mock-item, .mock-item.tall, .mock-item.wide {
-        height: 220px !important; /* Tinggi standar foto di HP */
-        grid-row: span 1 !important;
-        grid-column: span 1 !important;
-        border-radius: 25px !important;
-    }
-
-    .mock-item img {
-        object-fit: cover !important; /* Foto gak bakal ketarik/penyet */
-    }
-
-    /* FIX TYPOGRAFI & PALETTE: Biar gak meluap */
-    .typo-flex { 
-        flex-direction: column !important; 
-        gap: 30px; 
-    }
-    
-    .font-1 .aa, .font-2 .aa { 
-        font-size: 3.5rem !important; 
-    }
-
-    .circle { 
-        width: 45px !important; 
-        height: 45px !important; 
+        height: 70px !important;
     }
 }
