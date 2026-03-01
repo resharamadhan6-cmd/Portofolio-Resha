@@ -181,4 +181,33 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
         font-size: 0.8rem !important;
         z-index: 1000 !important;
     }
+
+    /* 6. FIX PENGALAMAN (JOURNEY) - Biar Gak Ciut */
+    .journey-line { left: 20px !important; transform: none !important; }
+    .journey-item { 
+        width: 100% !important; 
+        padding-left: 45px !important; 
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        text-align: left !important;
+        margin-bottom: 40px !important;
+    }
+    .journey-item:nth-child(odd) { text-align: left !important; }
+    .dot { left: 10px !important; right: auto !important; }
+    .journey-card { width: 100% !important; }
+
+    /* 7. FIX SERTIFIKAT & PROJECT - Biar Gak Gepeng */
+    .cert-grid, .project-grid { 
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    .cert-card, .project-link { 
+        width: 100% !important; 
+        min-width: unset !important;
+    }
+    .cert-card img, .slides, .project-box { 
+        height: auto !important; 
+        min-height: 220px !important; 
+    }
 }
