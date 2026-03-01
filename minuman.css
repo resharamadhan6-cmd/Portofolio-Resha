@@ -267,43 +267,140 @@ body {
 }
 
 /* MOBILE MODE (HP) */
+/* =========================================
+   MEDIA QUERY: FIX KHUSUS HP (ANTI-NGACR)
+   ========================================= */
 @media (max-width: 768px) {
-    body { padding: 15px; }
-    
-    .detail-header { flex-direction: column; gap: 15px; text-align: center; }
-    .header-spacer { display: none; }
-    
-    .logo-grid-top, .mockup-grid, .typo-flex { 
-        grid-template-columns: 1fr !important; 
+    /* 1. Header & Navigation Fix */
+    .navbar {
+        width: 95% !important;
+        top: 15px !important;
     }
     
-    .hero-card { 
-        flex-direction: column; 
-        padding: 30px; 
-        text-align: center; 
+    .nav-menu-wrapper {
+        padding: 8px 15px !important;
     }
     
-    .hero-logo-wrapper { 
-        flex-direction: column; 
-        gap: 20px; 
-        justify-content: center; 
+    .nav-menu {
+        gap: 10px !important;
+    }
+    
+    .nav-menu a {
+        font-size: 0.75rem !important;
+    }
+    
+    .logo-img {
+        height: 35px !important;
+        width: 35px !important;
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem !important;
+        line-height: 1.1 !important;
     }
 
-    .main-logo-text { font-size: 3.5rem; }
-    
-    .mock-item, .mock-item.tall, .mock-item.wide { 
-        grid-column: span 1 !important;
-        grid-row: span 1 !important;
-        height: 250px !important; 
+    /* 2. About Section & Foto Profil Fix (Rata Tengah) */
+    .about-grid { 
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .about-text { 
+        width: 100% !important; 
+        order: 1 !important; 
+        text-align: left; 
+    }
+
+    .about-visual { 
+        width: 100% !important; 
+        display: flex !important;
+        justify-content: center !important;
+        order: 2 !important; /* Foto di bawah teks */
+        margin: 50px 0 !important; /* Space untuk icon melayang */
+        position: relative;
+    }
+
+    .education-section-wrapper { 
+        width: 100% !important; 
+        order: 3 !important; /* Pendidikan di bawah foto */
+        margin-top: 20px !important;
+    }
+
+    /* Ukuran bingkai foto */
+    .glass-shape { 
+        width: 240px !important; 
+        height: 300px !important; 
     }
     
-    .typo-flex { gap: 40px; }
-    .font-1 .aa, .font-2 .aa { font-size: 4rem; }
-}
+    .profile-png {
+        width: 100%;
+        height: auto;
+    }
 
-/* SMALL MOBILE (HP KECIL) */
-@media (max-width: 480px) {
-    .nav-pill-item { padding: 8px 12px; font-size: 10px; }
-    .btn-kembali { width: 100%; text-align: center; }
-    .circle { width: 50px; height: 50px; }
+    /* 3. Icon Skill Melayang (Desktop Style tapi Pas di HP) */
+    .skill-node { 
+        display: flex !important; /* Paksa muncul */
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: absolute !important;
+        width: 55px !important; 
+        height: 55px !important;
+        z-index: 100 !important; /* Di depan foto */
+        background: var(--bg) !important;
+    }
+
+    /* Koordinat melayang agar tidak tertukar/numpuk di muka */
+    .p-ps { top: 10px !important; left: -25px !important; }
+    .p-ai { top: 110px !important; right: -25px !important; }
+    .p-cc { bottom: 110px !important; left: -30px !important; }
+    .p-cv { bottom: 15px !important; right: -20px !important; }
+
+    .custom-logo {
+        font-size: 0.9rem !important;
+    }
+
+    /* 4. FIX MODAL (DI KLIK) - ANTI KEBABLASAN */
+    /* Ubah posisi modal di HP agar menempel ke atas dan rata tengah secara vertikal */
+    .sub-card.expanded {
+        position: fixed !important;
+        top: 0 !important; /* Menempel ke atas */
+        left: 0 !important;
+        transform: none !important; /* Reset transform desktop */
+        width: calc(100% - 30px) !important; /* Lebar hampir penuh */
+        max-width: 450px !important; /* Jaga lebar maksimal */
+        height: 100vh !important; /* Tinggi penuh */
+        z-index: 3001 !important;
+        margin: 0 15px !important; /* Menengah kan */
+        padding: 60px 25px !important; /* Kurangi padding agar konten tidak melebih */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-around !important; /* Jarak proporsional antara teks & gambar */
+        border-radius: 0 !important; /* Kotak penuh */
+    }
+
+    /* Jaga jarak dalam modal agar rapi di HP */
+    .expanded small { font-size: 0.8rem; margin-bottom: 5px; }
+    .expanded .brand-description { margin-top: 15px; font-size: 0.9rem; line-height: 1.5; padding: 10px; }
+    .expanded .aa { font-size: 4rem; } /* Kecilkan AA di tipografi */
+
+    /* 5. FIX LINGKARAN WARNA & TIPOGRAFI MELUAP */
+    /* Kecilkan lingkaran warna agar muat di layar */
+    .expanded .circle { width: 50px !important; height: 50px !important; border-width: 3px; }
+    .expanded .aa { font-size: 4rem; } /* Kecilkan AA di tipografi */
+    
+    /* Jarak antara elemen tipografi */
+    .expanded .typo-flex {
+        gap: 30px !important;
+    }
+
+    /* 6. Fix Bagian Lainnya */
+    .journey-line { left: 20px; }
+    .journey-item { width: 100%; text-align: left !important; padding-left: 50px !important; padding-right: 0 !important; }
+    .dot { left: 10px !important; }
+    
+    .cert-grid { grid-template-columns: 1fr; }
+    .project-link { width: 100%; }
 }
