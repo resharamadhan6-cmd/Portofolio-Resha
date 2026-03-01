@@ -150,16 +150,11 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .project-link:hover .project-img { transform: scale(1.1); }
 
 /* ==========================================================
-   RESPONSIVE (FINAL: TEXT JUSTIFIED & TIGHT GAP)
+   RESPONSIVE FIX (HP & TABLET)
    ========================================================== */
 
-@media (max-width: 1024px) {
-    .hero h1 { font-size: 4.5rem; }
-    .project-link { width: calc(50% - 30px); }
-    .cert-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
 @media (max-width: 768px) {
+    /* Navbar Mobile */
     .navbar { width: 98%; top: 10px; }
     .nav-menu-wrapper { padding: 5px 10px; }
     .nav-menu { gap: 8px; }
@@ -167,26 +162,49 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
     .logo-img { height: 30px; width: 30px; }
     .theme-btn { width: 30px; height: 30px; font-size: 0.8rem; }
 
+    /* Hero Section */
     .hero h1 { font-size: 2.5rem; line-height: 1.1; }
 
+    /* About Section Fix */
     .about-grid { 
-        grid-template-columns: 1fr 110px; 
-        gap: 10px;
+        display: flex; /* Pakai flex biar urutan lebih aman */
+        flex-direction: column; /* Teks di atas, Foto di bawah */
+        gap: 20px;
+        text-align: left;
     }
 
     .intro-p { 
-        font-size: 0.95rem; 
-        text-align: justify; 
+        font-size: 1rem; /* Ukuran font dikecilkan biar gak pecah */
+        line-height: 1.5; 
+        text-align: left; /* Di HP jangan justify biar gak ada gap kosong */
+        word-spacing: normal; /* Balikin jarak kata ke normal */
     }
 
-    .glass-shape { width: 100px; height: 140px; border-radius: 15px; }
+    /* Foto Profil di HP dibuat lebih proporsional */
+    .about-visual { 
+        order: 2; /* Foto muncul setelah teks */
+        display: flex; 
+        justify-content: center;
+        margin-top: 10px;
+    }
 
+    .glass-shape { 
+        width: 180px; /* Ukuran pas untuk HP */
+        height: 240px; 
+        border-radius: 25px; 
+    }
+    
+    /* Skill node disembunyikan atau dikecilkan biar gak nutupin muka */
+    .skill-node { display: none !important; }
+
+    /* Pendidikan Section */
     .education-section-wrapper { 
-        margin-top: 5px; /* Makin mepet di HP */
+        margin-top: 20px; 
     }
-    .education-main-title { font-size: 1.3rem; }
-    .edu-card { padding: 12px; margin-top: 5px; }
+    .education-main-title { font-size: 1.4rem; }
+    .edu-card { padding: 15px; margin-top: 10px; }
 
+    /* Journey & Project */
     .journey-line { left: 15px; transform: none; }
     .journey-item { width: 100%; text-align: left !important; padding-left: 45px !important; margin-bottom: 25px; }
     .dot { left: 7px !important; }
