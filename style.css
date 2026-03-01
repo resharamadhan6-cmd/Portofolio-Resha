@@ -287,10 +287,9 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .project-link:hover .project-img { transform: scale(1.1); }
 
 /* ==========================================================
-   BAGIAN RESPONSIVE (TAMBAHKAN DI SINI TANPA POTONG ATAS)
+   BAGIAN RESPONSIVE (UPDATE: FOTO SEJAJAR TEKS DI HP)
    ========================================================== */
 
-/* Tablet & HP: Mencegah Layar Bocor */
 @media (max-width: 1024px) {
     .hero h1 { font-size: 4.5rem; }
     .project-link { width: calc(50% - 30px); }
@@ -298,31 +297,63 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 }
 
 @media (max-width: 768px) {
-    /* Navbar Tetap Desktop Style tapi Mengecil */
-    .navbar { width: 95%; top: 15px; }
-    .nav-menu-wrapper { padding: 8px 15px; }
-    .nav-menu { gap: 12px; }
-    .nav-menu a { font-size: 0.75rem; }
-    .logo-img { height: 35px; width: 35px; }
-    .theme-btn { width: 35px; height: 35px; font-size: 1rem; }
+    /* Navbar Desktop Style di HP */
+    .navbar { width: 98%; top: 10px; }
+    .nav-menu-wrapper { padding: 5px 10px; }
+    .nav-menu { gap: 8px; }
+    .nav-menu a { font-size: 0.65rem; }
+    .logo-img { height: 30px; width: 30px; }
+    .theme-btn { width: 30px; height: 30px; font-size: 0.8rem; }
 
-    /* Layout Content */
-    .hero h1 { font-size: 2.8rem; line-height: 1.1; }
+    /* Hero */
+    .hero h1 { font-size: 2.5rem; line-height: 1.1; }
     .hero-content { padding: 0 15px; }
-    .about-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-    
-    /* About & Skills Fix */
-    .glass-shape { width: 260px; height: 360px; margin: auto; }
-    .skill-node { width: 50px; height: 50px; }
-    .custom-logo { width: 30px; height: 30px; font-size: 0.8rem; }
-    .p-ps { left: -10px; } .p-ai { right: -10px; }
-    .p-cc { left: -15px; } .p-cv { right: -10px; }
+
+    /* --- FIX: FOTO SEJAJAR DENGAN TEKS PERKENALAN --- */
+    .about-grid { 
+        display: grid;
+        grid-template-columns: 1fr 100px; /* Teks lebar, Foto 100px */
+        gap: 15px;
+        align-items: center;
+        text-align: left;
+    }
+
+    .about-text p { 
+        font-size: 0.8rem; 
+        line-height: 1.4; 
+    }
+
+    .about-visual { 
+        display: flex; 
+        justify-content: flex-end; 
+    }
+
+    /* Kecilin ukuran glass-shape biar muat sejajar */
+    .glass-shape { 
+        width: 100px; 
+        height: 140px; 
+        border-radius: 15px;
+        margin: 0;
+    }
+
+    /* Sembunyikan bola skill di HP biar gak numpuk berantakan */
+    .skill-node { display: none; }
+
+    /* Pendidikan Turun ke Bawah (Makan 2 kolom) */
+    .education-section-wrapper { 
+        grid-column: span 2; 
+        margin-top: 15px; 
+        text-align: left;
+    }
+    .education-main-title { font-size: 1.3rem; }
+    .edu-card { padding: 12px; }
+    /* ------------------------------------------------ */
 
     /* Journey Fix */
-    .journey-line { left: 20px; transform: none; }
-    .journey-item { width: 100%; text-align: left !important; padding-left: 50px !important; padding-right: 0 !important; margin-bottom: 30px; }
-    .dot { left: 12px !important; right: auto !important; }
-    .journey-card { padding: 20px; }
+    .journey-line { left: 15px; transform: none; }
+    .journey-item { width: 100%; text-align: left !important; padding-left: 45px !important; padding-right: 0 !important; margin-bottom: 25px; }
+    .dot { left: 7px !important; right: auto !important; }
+    .journey-card { padding: 15px; }
 
     /* Grid Fix */
     .cert-grid { grid-template-columns: 1fr; }
