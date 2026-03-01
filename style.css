@@ -13,8 +13,6 @@
     --glass: rgba(255, 255, 255, 0.7);
     --card: #f9f9ff;
     --worm-rgb: 102, 102, 255;
-
-    /* Stroke tambahan untuk Light Mode agar glass kelihatan */
     --glass-stroke: 1px solid rgba(255, 255, 255, 0.5);
     --glass-stroke-thick: 2px solid rgba(255, 255, 255, 0.6);
 }
@@ -28,8 +26,6 @@
     --glass: rgba(26, 26, 51, 0.7);
     --card: #26264d;
     --star-rgb: 255, 255, 255;
-
-    /* Stroke lebih tipis untuk Dark Mode */
     --glass-stroke: 1px solid rgba(255, 255, 255, 0.1);
     --glass-stroke-thick: 2px solid rgba(255, 255, 255, 0.15);
 }
@@ -45,44 +41,15 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .z-10 { z-index: 10; }
 .accent-text { color: var(--accent); }
 
-/* --- Navbar Fixed --- */
-.navbar {
-    position: fixed; 
-    top: 25px; 
-    left: 50%; 
-    transform: translateX(-50%);
-    width: 90%; 
-    z-index: 1000;
-    background: transparent;
-}
-
-.nav-container { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-}
-
-.nav-menu-wrapper {
-    background: var(--glass);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: var(--glass-stroke);
-    border-radius: 50px;
-    padding: 10px 30px;
-}
-
+/* --- Navbar --- */
+.navbar { position: fixed; top: 25px; left: 50%; transform: translateX(-50%); width: 90%; z-index: 1000; background: transparent; }
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.nav-menu-wrapper { background: var(--glass); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: var(--glass-stroke); border-radius: 50px; padding: 10px 30px; }
 .nav-left { flex: 1; }
 .logo-img { height: 45px; width: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
-
-.nav-menu { 
-    display: flex; 
-    justify-content: center; 
-    list-style: none; 
-    gap: 30px; 
-}
+.nav-menu { display: flex; justify-content: center; list-style: none; gap: 30px; }
 .nav-menu a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.95rem; }
 .nav-menu a:hover { color: var(--primary); }
-
 .nav-right { flex: 1; display: flex; justify-content: flex-end; }
 .theme-btn { border: none; background: var(--primary); color: var(--bg); width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
 
@@ -90,73 +57,43 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 .light-mode .hero { background: linear-gradient(180deg, var(--p1) 0%, var(--p2) 33%, var(--p3) 66%, var(--p4) 100%); }
 .dark-mode .hero { background: linear-gradient(180deg, #1a1a33 0%, var(--p1) 50%, var(--p2) 100%); }
-
 #wormCanvas, #starCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; transition: opacity 0.5s ease; }
 .light-mode #wormCanvas { display: block; opacity: 1; }
 .light-mode #starCanvas { display: none; opacity: 0; }
 .dark-mode #wormCanvas { display: none; opacity: 0; }
 .dark-mode #starCanvas { display: block; opacity: 1; }
-
 .hero-content { position: relative; z-index: 2; text-align: center; }
 .hero h1 { font-size: 6rem; font-weight: 900; line-height: 0.9; color: #ffffff; text-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
 
-/* --- About & Profile --- */
-.about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
-
-.profile-glass-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* --- About & Profile (OPTIMIZED) --- */
+.about-grid { 
+    display: grid; 
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 30px; /* Jarak antar kolom dikecilkan */
+    align-items: flex-start; 
 }
 
-.glass-shape {
-    position: relative;
-    width: 320px;
-    height: 420px;
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: var(--glass-stroke-thick);
-    border-radius: 40px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-    z-index: 5;
+/* Styling Teks Intro: Lebih gede dan Rata Kiri Kanan */
+.intro-p { 
+    font-size: 1.4rem; /* Ukuran teks diperbesar */
+    line-height: 1.7; 
+    text-align: justify; 
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0;
 }
 
-.profile-png {
-    width: 110%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.2));
-    z-index: 6;
+.intro-p .accent-text {
+    font-weight: 800;
 }
 
-.skill-node {
-    position: absolute;
-    width: 65px;
-    height: 65px;
-    background: var(--bg);
-    border: 2px solid var(--primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 10;
-}
+.profile-glass-container { position: relative; width: 100%; display: flex; justify-content: center; align-items: center; }
+.glass-shape { position: relative; width: 320px; height: 400px; background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: var(--glass-stroke-thick); border-radius: 40px; display: flex; align-items: flex-end; justify-content: center; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1); z-index: 5; }
+.profile-png { width: 110%; height: auto; object-fit: contain; filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.2)); z-index: 6; }
+
+.skill-node { position: absolute; width: 65px; height: 65px; background: var(--bg); border: 2px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 10; }
 .skill-node:hover { transform: scale(1.15) rotate(10deg); background: var(--primary); }
-
-.custom-logo {
-    width: 40px; height: 40px; border: 3px solid var(--primary); border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; font-weight: 800; color: var(--primary); transition: 0.3s;
-}
+.custom-logo { width: 40px; height: 40px; border: 3px solid var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--primary); transition: 0.3s; }
 .skill-node:hover .custom-logo { border-color: #fff; color: #fff; }
 
 .p-ps { top: 10px; left: -30px; }
@@ -164,23 +101,20 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .p-cc { bottom: 120px; left: -35px; }
 .p-cv { bottom: 20px; right: -25px; }
 
-.skill-stats-bubble {
-    position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%) scale(0);
-    width: 200px; background: var(--card); padding: 15px; border-radius: 20px;
-    border: 1px solid var(--primary); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    z-index: 100; text-align: center; transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
+.skill-stats-bubble { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%) scale(0); width: 200px; background: var(--card); padding: 15px; border-radius: 20px; border: 1px solid var(--primary); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); z-index: 100; text-align: center; transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
 .skill-stats-bubble.active { transform: translateX(-50%) scale(1); }
-
 .stat-bar-bg { width: 100%; height: 8px; background: rgba(0, 0, 0, 0.1); border-radius: 10px; margin: 10px 0; overflow: hidden; }
 .stat-bar-fill { height: 100%; width: 0%; background: var(--primary); transition: 1s ease-out; }
-
 #stat-percent { font-weight: 800; color: var(--primary); font-size: 1.2rem; }
 #stat-title { font-weight: 600; font-size: 0.9rem; }
 
-.education-section-wrapper { margin-top: 30px; }
-.education-main-title { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-.edu-card { margin-top: 15px; padding: 20px; background: var(--card); border-radius: 15px; border-left: 5px solid var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+/* Bagian Pendidikan Didekatkan ke Atas */
+.education-section-wrapper { 
+    margin-top: 10px; /* Jarak sangat minim biar deket sama foto */
+    grid-column: span 2; 
+}
+.education-main-title { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.edu-card { margin-top: 10px; padding: 20px; background: var(--card); border-radius: 15px; border-left: 5px solid var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 
 /* --- Journey --- */
 .journey-section { background: rgba(102, 102, 255, 0.05); }
@@ -194,100 +128,29 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .journey-item:nth-child(odd) .dot { right: -10px; }
 .journey-card { background: var(--card); padding: 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
 
-/* --- Sertifikat (FIXED IMAGE) --- */
+/* --- Sertifikat --- */
 .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-.cert-card { 
-    background: var(--glass); 
-    backdrop-filter: blur(10px);
-    border: var(--glass-stroke);
-    border-radius: 20px; 
-    overflow: hidden; 
-    text-align: center; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
-}
-
-.cert-card img, .slide { 
-    width: 100%; 
-    height: 250px; 
-    object-fit: cover; 
-    display: block;
-}
-
+.cert-card { background: var(--glass); backdrop-filter: blur(10px); border: var(--glass-stroke); border-radius: 20px; overflow: hidden; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+.cert-card img, .slide { width: 100%; height: 250px; object-fit: cover; display: block; }
 .slides { position: relative; height: 250px; overflow: hidden; }
 .slide { position: absolute; top: 0; left: 0; opacity: 0; transition: 1s ease; }
 .slide.active { opacity: 1; }
 .cert-label { padding: 15px; font-weight: 700; color: var(--text); }
 
 /* --- Projects --- */
-.project-bg { 
-    background: linear-gradient(135deg, var(--p1) 0%, var(--p2) 50%, var(--p3) 100%); 
-    color: #ffffff; 
-}
-
-.project-grid { 
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 30px; 
-    padding: 20px 0;
-}
-
-.project-link {
-    text-decoration: none;
-    display: block;
-    width: calc(33.333% - 30px); 
-    min-width: 280px; 
-    transition: transform 0.4s ease;
-}
-
-.project-box { 
-    position: relative;
-    width: 100%; 
-    height: 220px; 
-    background: rgba(255,255,255,0.15); 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.3); 
-    border-radius: 25px; 
-    overflow: hidden; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-}
-
-.project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    display: block;
-    transition: 0.5s ease;
-}
-
-.project-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(102, 102, 255, 0.8);
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    opacity: 0; 
-    transition: 0.3s ease;
-    z-index: 2;
-}
-
-.project-overlay span { 
-    font-size: 1.1rem; 
-    font-weight: 800; 
-    color: #ffffff; 
-    text-transform: uppercase;
-}
-
+.project-bg { background: linear-gradient(135deg, var(--p1) 0%, var(--p2) 50%, var(--p3) 100%); color: #ffffff; }
+.project-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 20px 0; }
+.project-link { text-decoration: none; display: block; width: calc(33.333% - 30px); min-width: 280px; transition: transform 0.4s ease; }
+.project-box { position: relative; width: 100%; height: 220px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); border-radius: 25px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.project-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: 0.5s ease; }
+.project-overlay { position: absolute; inset: 0; background: rgba(102, 102, 255, 0.8); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s ease; z-index: 2; }
+.project-overlay span { font-size: 1.1rem; font-weight: 800; color: #ffffff; text-transform: uppercase; }
 .project-link:hover { transform: translateY(-10px); }
 .project-link:hover .project-overlay { opacity: 1; }
 .project-link:hover .project-img { transform: scale(1.1); }
 
 /* ==========================================================
-   BAGIAN RESPONSIVE (UPDATE: FOTO SEJAJAR TEKS DI HP)
+   RESPONSIVE (FINAL: TEXT JUSTIFIED & TIGHT GAP)
    ========================================================== */
 
 @media (max-width: 1024px) {
@@ -297,7 +160,6 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 }
 
 @media (max-width: 768px) {
-    /* Navbar Desktop Style di HP */
     .navbar { width: 98%; top: 10px; }
     .nav-menu-wrapper { padding: 5px 10px; }
     .nav-menu { gap: 8px; }
@@ -305,57 +167,31 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
     .logo-img { height: 30px; width: 30px; }
     .theme-btn { width: 30px; height: 30px; font-size: 0.8rem; }
 
-    /* Hero */
     .hero h1 { font-size: 2.5rem; line-height: 1.1; }
-    .hero-content { padding: 0 15px; }
 
-    /* --- FIX: FOTO SEJAJAR DENGAN TEKS PERKENALAN --- */
     .about-grid { 
-        display: grid;
-        grid-template-columns: 1fr 100px; /* Teks lebar, Foto 100px */
-        gap: 15px;
-        align-items: center;
-        text-align: left;
+        grid-template-columns: 1fr 110px; 
+        gap: 10px;
     }
 
-    .about-text p { 
-        font-size: 0.8rem; 
-        line-height: 1.4; 
+    .intro-p { 
+        font-size: 0.95rem; 
+        text-align: justify; 
     }
 
-    .about-visual { 
-        display: flex; 
-        justify-content: flex-end; 
-    }
+    .glass-shape { width: 100px; height: 140px; border-radius: 15px; }
 
-    /* Kecilin ukuran glass-shape biar muat sejajar */
-    .glass-shape { 
-        width: 100px; 
-        height: 140px; 
-        border-radius: 15px;
-        margin: 0;
-    }
-
-    /* Sembunyikan bola skill di HP biar gak numpuk berantakan */
-    .skill-node { display: none; }
-
-    /* Pendidikan Turun ke Bawah (Makan 2 kolom) */
     .education-section-wrapper { 
-        grid-column: span 2; 
-        margin-top: 15px; 
-        text-align: left;
+        margin-top: 5px; /* Makin mepet di HP */
     }
     .education-main-title { font-size: 1.3rem; }
-    .edu-card { padding: 12px; }
-    /* ------------------------------------------------ */
+    .edu-card { padding: 12px; margin-top: 5px; }
 
-    /* Journey Fix */
     .journey-line { left: 15px; transform: none; }
-    .journey-item { width: 100%; text-align: left !important; padding-left: 45px !important; padding-right: 0 !important; margin-bottom: 25px; }
-    .dot { left: 7px !important; right: auto !important; }
+    .journey-item { width: 100%; text-align: left !important; padding-left: 45px !important; margin-bottom: 25px; }
+    .dot { left: 7px !important; }
     .journey-card { padding: 15px; }
 
-    /* Grid Fix */
     .cert-grid { grid-template-columns: 1fr; }
     .project-link { width: 100%; }
 }
