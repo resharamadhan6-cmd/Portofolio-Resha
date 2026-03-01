@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio | Aurora Pastel & Hybrid Background</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode overflow-x-hidden">
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo-box">
+                    <img src="home/LOGO PORTOFOLIO.png" alt="Logo" class="logo-img">
+                </div>
+            </div>
+            
+            <div class="nav-menu-wrapper">
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Project</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-btn">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <canvas id="wormCanvas"></canvas>
+        <canvas id="starCanvas"></canvas>
+        
+        <div class="hero-content" data-aos="zoom-out">
+            <h1>PORTFOLIO <br><span class="accent-text">CREATIVE</span></h1>
+            <p>Visual Designer | Creative Storyteller</p>
+        </div>
+    </section>
+
+    <section id="about" class="section container relative z-10">
+        <h2 class="section-title" data-aos="fade-up">Tentang Saya</h2>
+        <div class="about-grid">
+            <div class="about-text" data-aos="fade-right">
+                <p>Saya Resha Ramadhan, seorang Designer & Photographer yang berfokus pada visual storytelling. Saat ini saya sedang menempuh pendidikan Ilmu Komunikasi di Universitas Bina Sarana Informatika. Saya senang menggabungkan estetika dan emosi untuk menciptakan karya visual yang bermakna dan komunikatif.</p>
+                
+                <div class="education-section-wrapper">
+                    <h3 class="education-main-title"><i class="fas fa-graduation-cap"></i> Pendidikan</h3>
+                    <div class="education-box">
+                        <div class="edu-card">
+                            <span>2021 - 2023</span>
+                            <h4>SMK Citra Pariwisata - Jurusan Multimedia</h4>
+                            <p>Mendalami dasar desain grafis dan multimedia.</p>
+                        </div>
+                        <div class="edu-card">
+                            <span>2025 - Sekarang</span>
+                            <h4>Universitas Bina Sarana Informatika - Ilmu Komunikasi</h4>
+                            <p>Fokus pada branding dan komunikasi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-visual" data-aos="fade-left">
+                <div class="profile-glass-container">
+                    <div class="glass-shape">
+                        <img src="home/Profil.png" alt="Profile" class="profile-png">
+                        
+                        <div class="skill-node p-ps" onclick="showSkill(this, 'Photoshop', '80%')">
+                            <div class="custom-logo">PS</div>
+                        </div>
+                        <div class="skill-node p-ai" onclick="showSkill(this, 'Illustrator', '50%')">
+                            <div class="custom-logo">AI</div>
+                        </div>
+                        <div class="skill-node p-cc" onclick="showSkill(this, 'CapCut', '85%')">
+                            <div class="custom-logo">CC</div>
+                        </div>
+                        <div class="skill-node p-cv" onclick="showSkill(this, 'Canva', '90%')">
+                            <div class="custom-logo">CV</div>
+                        </div>
+                    </div>
+
+                    <div id="skill-stats" class="skill-stats-bubble">
+                        <h5 id="stat-title">Software</h5>
+                        <div class="stat-bar-bg">
+                            <div id="stat-fill" class="stat-bar-fill"></div>
+                        </div>
+                        <span id="stat-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section journey-section relative z-10">
+        <h2 class="section-title" data-aos="fade-up">Pengalaman Kerja</h2>
+        <div class="journey-wrapper container">
+            <div class="journey-line"></div>
+            
+            <div class="journey-item" data-aos="fade-right">
+                <div class="dot"></div>
+                <div class="journey-card">
+                    <span class="year accent-text">2022 Feb - 2022 Agust</span>
+                    <h3>Leuweung Geledegan Ecolodge</h3>
+                    <p>Magang Graphic Designer</p>
+                </div>
+            </div>
+
+            <div class="journey-item" data-aos="fade-left">
+                <div class="dot"></div>
+                <div class="journey-card">
+                    <span class="year accent-text">2022 Nov - 2022 Mar</span>
+                    <h3>Azana Green Peak</h3>
+                    <p>Admin Sales & Marketing - Freelance</p>
+                </div>
+            </div>
+
+            <div class="journey-item" data-aos="fade-right">
+                <div class="dot"></div>
+                <div class="journey-card">
+                    <span class="year accent-text">2023 Sep - 2024 Des</span>
+                    <h3>Jbound & Bebound Teambounder</h3>
+                    <p>Design Staff - Full Time</p>
+                </div>
+            </div>
+        </div>
+
+            <div class="journey-item" data-aos="fade-right">
+                <div class="dot"></div>
+                <div class="journey-card">
+                    <span class="year accent-text">2024 Des - Sekarang</span>
+                    <h3>Freelance</h3>
+                    <p>Fotografer Dokumentasi</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="section container relative z-10">
+        <h2 class="section-title" data-aos="fade-up">Sertifikat</h2>
+        <div class="cert-grid">
+            <div class="cert-card slideshow-container" data-aos="zoom-in">
+                <div class="slides">
+                    <img src="sertifikat/Leuweung Geledegan depan.jpg" class="slide active">
+                    <img src="sertifikat/Leuweung Geledegan belakang.jpg" class="slide">
+                </div>
+                <div class="cert-label">Sertifikat Leuweung Geledegan </div>
+            </div>
+            <div class="cert-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="sertifikat/sertifikat lomba.jpg" alt="Cert">
+                <div class="cert-label">Sertifikat Lomba video</div>
+            </div>
+            <div class="cert-card" data-aos="zoom-in" data-aos-delay="200">
+                <img src="sertifikat/sertifikat azana.jpg" alt="Cert">
+                <div class="cert-label">Sertifikat Azana</div>
+            </div>
+        </div>
+    </section>
+
+ <section id="projects" class="section project-bg relative z-10">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Project Design</h2>
+        <div class="project-grid">
+            
+            <a href="ecofold.html" class="project-link" data-aos="flip-left">
+                <div class="project-box">
+                    <img src="image/logo/ecofold/sign here.png" alt="Logo Design" class="project-img">
+                    <div class="project-overlay">
+                        <span>Design Logo</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="halaman-spanduk.html" class="project-link" data-aos="flip-left">
+                <div class="project-box">
+                    <img src="image/spanduk/23 -24 Juni 2024 SDN Teluk Pucung 6.jpg" alt="Spanduk Design" class="project-img">
+                    <div class="project-overlay">
+                        <span>Design Spanduk</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="youtube.html" class="project-link" data-aos="flip-left">
+                <div class="project-box">
+                    <img src="image/thumbnail/Pengabdian Masyarakat (2).jpg" alt="Thumbnail YT" class="project-img">
+                    <div class="project-overlay">
+                        <span>Thumbnail</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="socmed.html" class="project-link" data-aos="flip-left"> 
+                <div class="project-box">
+                    <img src="image/design/mentari v2.jpg" alt="Design Postingan" class="project-img">
+                    <div class="project-overlay">
+                        <span>Design Postingan</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
