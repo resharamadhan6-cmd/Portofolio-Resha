@@ -118,6 +118,7 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .project-link:hover .project-overlay { opacity: 1; }
 .project-link:hover .project-img { transform: scale(1.1); }
 /* --- MEDIA QUERY: FIX KHUSUS HP --- */
+/* --- MEDIA QUERY: FIX KHUSUS HP --- */
 @media (max-width: 768px) {
     .navbar { width: 95% !important; top: 15px !important; }
     .nav-menu-wrapper { padding: 8px 15px !important; }
@@ -148,6 +149,21 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
     .cert-card { width: 100% !important; margin-bottom: 25px !important; display: block !important; }
     .cert-card img, .slides { width: 100% !important; height: auto !important; min-height: 200px !important; object-fit: contain !important; }
 
+    /* Project Fix Mobile */
     .project-grid { display: block !important; }
-    .project-link { width: 100% !important; display: block !important; margin-bottom: 20px !important; }
+    .project-link { 
+        width: 100% !important; 
+        display: block !important; 
+        margin-bottom: 25px !important;
+        -webkit-tap-highlight-color: transparent; 
+    }
+
+    .project-link:active .project-overlay { 
+        opacity: 1 !important; 
+    }
+
+    .project-box {
+        height: auto !important;
+        min-height: 200px !important;
+    }
 }
