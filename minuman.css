@@ -246,91 +246,103 @@ body {
 /* REVEAL */
 .reveal { opacity: 0; transform: translateY(30px); transition: 0.6s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
+/* =========================================
+   RESPONSIVE MODE (TABLET & HP) - FIX TOTAL
+   ========================================= */
 
-/* =========================================
-   MEDIA QUERY: HP (FIX TOTAL)
-   ========================================= */
-/* =========================================
-   FIX TOTAL UNTUK HP (RESPONSIVE)
-   ========================================= */
+/* 1. TABLET MODE (max-width: 1024px) */
+@media (max-width: 1024px) {
+    /* Logo Grid jadi 2 kolom (biar gak gepeng) */
+    .logo-grid-top { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+    }
+
+    /* Mockup Grid jadi 2 kolom */
+    .mockup-grid { 
+        grid-template-columns: 1fr 1fr !important; 
+    }
+
+    .mock-item.tall { 
+        height: 400px !important; 
+    }
+}
+
+/* 2. MOBILE MODE (HP - max-width: 768px) */
 @media (max-width: 768px) {
-    /* 1. Reset Global Container */
-    body {
-        padding: 10px; /* Kurangi padding body biar gak makin sempit */
+    body { 
+        padding: 15px; 
+    }
+    
+    /* Header Fix */
+    .detail-header { 
+        flex-direction: column; 
+        gap: 15px; 
+    }
+    
+    .header-spacer { 
+        display: none; 
     }
 
-    /* 2. Fix Typografi (Biar gak lewat batas) */
-    .typo-card {
-        padding: 25px 15px !important; /* Kecilkan padding kartu */
+    /* 2a. FIX HERO LOGO: SEJAJAR HORIZONTAL & TIDAK GEPENG */
+    .hero-card { 
+        padding: 30px 20px !important; 
+        min-height: unset !important; /* Hapus min-height kaku */
+        height: auto !important; /* Biar kotaknya menyesuaikan isi */
+        display: flex !important;
+        justify-content: center !important; /* Tengahkan konten kaku */
     }
 
-    .typo-flex {
-        flex-direction: column !important; /* Paksa turun ke bawah, jangan ke samping */
-        gap: 40px !important;
-        align-items: center;
+    .hero-logo-wrapper { 
+        display: flex !important;
+        flex-direction: row !important; /* PAKSA HORIZONTAL (KIRI-KANAN) */
+        align-items: center !important; /* Rata tengah vertikal */
+        gap: 25px !important; /* Kecilkan gap */
+        width: 100% !important;
+        justify-content: center !important;
     }
 
-    .font-1 .aa, .font-2 .aa {
-        font-size: 3.5rem !important; /* Perkecil ukuran 'Aa' secara drastis di HP */
-        line-height: 1;
+    /* Sesuaikan Ukuran Logo biar gak kegedean samping teks */
+    .hero-icon { 
+        width: 80px !important; 
+        height: auto !important; 
     }
 
-    .typo-item small {
-        font-size: 0.7rem !important; /* Kecilkan teks deskripsi font */
-        word-break: break-all; /* Biar teks alphabetnya gak bablas */
+    /* Sesuaikan Teks biar proporsional horizontal */
+    .main-logo-text { 
+        font-size: 2.8rem !important; 
     }
 
-    /* 3. Fix Color Palette (Biar gak kelebihan ke samping) */
-    .palette-card {
-        padding: 25px 15px !important;
+    /* 2b. Logo Grid & Mockup jadi 1 kolom (Anti Gepeng) */
+    .logo-grid-top, .mockup-grid { 
+        grid-template-columns: 1fr !important; 
     }
 
-    .colors-wrapper {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; /* Bagi jadi 2 kolom saja */
-        gap: 20px !important;
-        justify-items: center;
+    .sub-card {
+        width: 100% !important;
     }
 
-    .circle {
-        width: 45px !important; /* Kecilkan lingkaran warna */
-        height: 45px !important;
+    .mock-item, .mock-item.tall, .mock-item.wide { 
+        height: 250px !important; 
+        grid-row: span 1 !important;
+        grid-column: span 1 !important;
     }
 
-    /* 4. Fix Modal / Sub-card Expanded (Biar pas di layar) */
-    .sub-card.expanded {
-        width: 92% !important; /* Kasih space dikit di kiri kanan */
-        max-height: 85vh !important; /* Biar gak mentok atas bawah banget */
-        padding: 30px 20px !important;
-        overflow-y: auto !important; /* Kalau kepanjangan bisa di-scroll */
+    /* 2c. Palette & Typografi tetap tumpuk bawah (Anti Overflow) */
+    .colors-wrapper { 
+        gap: 15px !important; 
+    }
+    
+    .circle { 
+        width: 45px !important; 
+        height: 45px !important; 
     }
 
-    .logo-type-font {
-        font-size: 1.8rem !important; /* Kecilkan teks 'Beat Boost' di dalem modal */
+    .typo-flex { 
+        flex-direction: column !important; 
+        gap: 30px; 
     }
-
-    .brand-description {
-        font-size: 0.85rem !important;
-        padding: 12px !important;
-    }
-
-    /* 5. Fix Hero & Header */
-    .hero-card {
-        padding: 30px 15px !important;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-icon {
-        width: 80px !important;
-    }
-
-    .main-logo-text {
-        font-size: 2.5rem !important; /* Judul utama diperkecil */
-    }
-
-    .nav-pill-item {
-        padding: 6px 12px !important; /* Kecilkan tombol navigasi */
-        font-size: 9px !important;
+    
+    .font-1 .aa, .font-2 .aa { 
+        font-size: 4rem !important; 
     }
 }
