@@ -149,67 +149,68 @@ body { background-color: var(--bg); color: var(--text); transition: all 0.5s eas
 .project-link:hover .project-overlay { opacity: 1; }
 .project-link:hover .project-img { transform: scale(1.1); }
 
-/* ==========================================================
-   RESPONSIVE FIX (HP & TABLET)
-   ========================================================== */
-
 @media (max-width: 768px) {
-    /* Navbar Mobile */
-    .navbar { width: 98%; top: 10px; }
-    .nav-menu-wrapper { padding: 5px 10px; }
-    .nav-menu { gap: 8px; }
-    .nav-menu a { font-size: 0.65rem; }
-    .logo-img { height: 30px; width: 30px; }
-    .theme-btn { width: 30px; height: 30px; font-size: 0.8rem; }
+    /* 1. Perbaikan Navigasi biar nggak numpuk */
+    .navbar { width: 95%; top: 10px; }
+    .nav-menu-wrapper { padding: 8px 15px; }
+    .nav-menu { gap: 10px; }
+    .nav-menu a { font-size: 0.7rem; }
+    .logo-img { height: 35px; width: 35px; }
 
-    /* Hero Section */
-    .hero h1 { font-size: 2.5rem; line-height: 1.1; }
-
-    /* About Section Fix */
+    /* 2. Layout About: Teks Dulu Baru Foto */
     .about-grid { 
-        display: flex; /* Pakai flex biar urutan lebih aman */
-        flex-direction: column; /* Teks di atas, Foto di bawah */
+        display: flex;
+        flex-direction: column; /* Ini kuncinya biar urut ke bawah */
         gap: 20px;
         text-align: left;
     }
 
-    .intro-p { 
-        font-size: 1rem; /* Ukuran font dikecilkan biar gak pecah */
-        line-height: 1.5; 
-        text-align: left; /* Di HP jangan justify biar gak ada gap kosong */
-        word-spacing: normal; /* Balikin jarak kata ke normal */
+    .about-text {
+        order: 1; /* Teks "Tentang Saya" jadi yang pertama */
     }
 
-    /* Foto Profil di HP dibuat lebih proporsional */
+    .intro-p { 
+        font-size: 1.05rem; /* Ukuran font pas buat dibaca di HP */
+        line-height: 1.6; 
+        text-align: left; /* Matikan justify biar gak renggang/bolong */
+        word-spacing: normal;
+        margin-bottom: 10px;
+    }
+
     .about-visual { 
-        order: 2; /* Foto muncul setelah teks */
+        order: 2; /* Foto Profil pindah ke bawah teks */
         display: flex; 
         justify-content: center;
-        margin-top: 10px;
+        margin: 20px 0;
     }
 
+    /* 3. Ukuran Foto Profil di HP biar pas */
     .glass-shape { 
-        width: 180px; /* Ukuran pas untuk HP */
-        height: 240px; 
-        border-radius: 25px; 
+        width: 220px; 
+        height: 280px; 
+        border-radius: 30px; 
     }
     
-    /* Skill node disembunyikan atau dikecilkan biar gak nutupin muka */
+    .profile-png {
+        width: 100%;
+    }
+
+    /* Hilangkan skill node (PS, AI, dll) di HP biar gak berantakan */
     .skill-node { display: none !important; }
 
-    /* Pendidikan Section */
+    /* 4. Pendidikan Section */
     .education-section-wrapper { 
-        margin-top: 20px; 
+        order: 3; /* Pendidikan paling bawah setelah foto */
+        margin-top: 10px; 
     }
-    .education-main-title { font-size: 1.4rem; }
-    .edu-card { padding: 15px; margin-top: 10px; }
+    .education-main-title { font-size: 1.5rem; margin-bottom: 15px; }
+    .edu-card { padding: 15px; margin-bottom: 10px; }
 
-    /* Journey & Project */
-    .journey-line { left: 15px; transform: none; }
-    .journey-item { width: 100%; text-align: left !important; padding-left: 45px !important; margin-bottom: 25px; }
+    /* 5. Hero & Lainnya */
+    .hero h1 { font-size: 2.8rem; line-height: 1.1; }
+    .journey-line { left: 15px; }
+    .journey-item { width: 100%; padding-left: 45px !important; }
     .dot { left: 7px !important; }
-    .journey-card { padding: 15px; }
-
     .cert-grid { grid-template-columns: 1fr; }
     .project-link { width: 100%; }
 }
