@@ -35,7 +35,7 @@ const swiperPromosi = new Swiper(".swiper-promosi", {
     autoplay: { ...marqueeConfig.autoplay, reverseDirection: true }
 });
 
-// 3. Logika Global Click
+// 3. Logika Global Click (Modal, Lightbox, & Scroll)
 const menuModal = document.getElementById('menuModal');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
@@ -49,17 +49,21 @@ document.addEventListener('click', function(e) {
         menuModal.classList.remove('active');
     }
 
-    // B. LIGHTBOX FIX (Mencegah Bug Ukuran)
-    const cardImg = e.target.closest('.design-card img');
-    if (cardImg) {
-        lightboxImg.src = cardImg.src;
+    // B. LIGHTBOX FIX (Anti Meledak & Lock Scroll)
+    const clickedImg = e.target.closest('.design-card img');
+    if (clickedImg) {
+        lightboxImg.src = clickedImg.src;
         lightbox.classList.add('active');
+        document.body.classList.add('modal-open');
     }
+    
+    // Tutup Lightbox
     if (e.target === lightbox || e.target.closest('.lightbox-close')) {
         lightbox.classList.remove('active');
+        document.body.classList.remove('modal-open');
     }
 
-    // C. SCROLL ACCURATE (Fix Nabrak Navbar)
+    // C. SCROLL ACCURATE
     const slide = e.target.closest('.mySwiper .swiper-slide');
     if (slide) {
         const img = slide.querySelector('img');
@@ -86,7 +90,7 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Refresh swiper pas resize biar gak macet
+// Refresh Swiper pas resize
 window.addEventListener('resize', () => {
     heroSwiper.update();
     swiperUcapan.update();
