@@ -184,24 +184,24 @@ body.modal-open {
     transform: scale(0.8); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* LIGHTBOX FIX: ANTI MELEDAK DI HP */
+/* --- FINAL BOSS FIX LIGHTBOX --- */
 .lightbox {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important; /* Paksa selebar layar */
+    height: 100vh !important; /* Paksa setinggi layar */
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(15px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
+    display: flex !important; /* Paksa pake flex */
+    justify-content: center !important; /* Center horizontal */
+    align-items: center !important; /* Center vertikal */
+    z-index: 999999; 
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    padding: 20px;
-    box-sizing: border-box;
+    padding: 0; /* Reset padding biar gak ada sisa di samping */
+    margin: 0;
 }
 
 .lightbox.active {
@@ -210,32 +210,45 @@ body.modal-open {
 }
 
 .lightbox img {
-    max-width: 100% !important;
-    max-height: 85vh !important; /* Sisain ruang buat tombol close */
+    /* Kunci utama biar gak nyisa di samping */
+    display: block;
+    max-width: 90vw !important; /* Kasih nafas 5% kanan-kiri */
+    max-height: 80vh !important; /* Kasih nafas buat tombol close */
     width: auto !important;
     height: auto !important;
-    object-fit: contain !important; /* Foto dipaksa muat di layar */
-    border-radius: 10px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    transform: translateY(20px);
-    transition: transform 0.3s ease-out;
+    object-fit: contain !important;
+    
+    /* Hilangkan margin bawaan yang mungkin bikin geser */
+    margin: auto !important; 
+    
+    border-radius: 12px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .lightbox.active img {
-    transform: translateY(0);
+    transform: scale(1);
 }
 
 .lightbox-close { 
     position: absolute; 
-    top: env(safe-area-inset-top, 25px); 
+    /* Pake padding aman buat HP berponi */
+    top: max(20px, env(safe-area-inset-top)); 
     right: 25px; 
-    color: white; 
-    font-size: 3rem; 
+    color: #fff; 
+    font-size: 3.5rem; 
+    font-weight: bold;
     cursor: pointer; 
+    z-index: 1000001;
     line-height: 1;
-    z-index: 100001;
 }
 
+/* Reset Body biar gak goyang pas lightbox aktif */
+body.modal-open {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .main-title { font-size: 2.8rem !important; margin: 20px 0; }
