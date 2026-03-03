@@ -16,7 +16,7 @@ const heroSwiper = new Swiper(".mySwiper", {
     },
 });
 
-// 2. Marquee Swipers (Ucapan & Promosi)
+// 2. Marquee Swipers
 const marqueeConfig = {
     slidesPerView: "auto",
     spaceBetween: 30,
@@ -26,7 +26,6 @@ const marqueeConfig = {
     autoplay: {
         delay: 0,
         disableOnInteraction: false,
-        pauseOnMouseEnter: false,
     },
 };
 
@@ -36,7 +35,7 @@ const swiperPromosi = new Swiper(".swiper-promosi", {
     autoplay: { ...marqueeConfig.autoplay, reverseDirection: true }
 });
 
-// 3. Logika Global Click (Modal, Lightbox, & Navigasi Scroll)
+// 3. Logika Global Click
 const menuModal = document.getElementById('menuModal');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
@@ -50,31 +49,46 @@ document.addEventListener('click', function(e) {
         menuModal.classList.remove('active');
     }
 
-    // B. LIGHTBOX (Zoom Gambar dari Marquee)
-    if (e.target.closest('.design-card img')) {
-        lightboxImg.src = e.target.closest('img').src;
+    // B. LIGHTBOX FIX (Mencegah Bug Ukuran)
+    const cardImg = e.target.closest('.design-card img');
+    if (cardImg) {
+        lightboxImg.src = cardImg.src;
         lightbox.classList.add('active');
     }
     if (e.target === lightbox || e.target.closest('.lightbox-close')) {
         lightbox.classList.remove('active');
     }
 
-    // C. SCROLL DARI HERO (Akurat pake Alt Text)
+    // C. SCROLL ACCURATE (Fix Nabrak Navbar)
     const slide = e.target.closest('.mySwiper .swiper-slide');
     if (slide) {
         const img = slide.querySelector('img');
         if (img && img.hasAttribute('alt')) {
-            const imgAlt = img.getAttribute('alt').toLowerCase();
+            const alt = img.getAttribute('alt').toLowerCase();
+            let targetId = "";
             
-            if (imgAlt === 'ucapan') {
-                document.getElementById('ucapan').scrollIntoView({ behavior: 'smooth' });
-            } 
-            else if (imgAlt === 'promo') {
-                document.getElementById('promosi').scrollIntoView({ behavior: 'smooth' });
-            } 
-            else if (imgAlt === 'postingan') {
-                document.getElementById('postingan').scrollIntoView({ behavior: 'smooth' });
+            if (alt.includes('ucapan')) targetId = "ucapan";
+            else if (alt.includes('promo')) targetId = "promosi";
+            else if (alt.includes('postingan')) targetId = "postingan";
+
+            const element = document.getElementById(targetId);
+            if (element) {
+                const offset = 20; 
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
             }
         }
     }
+});
+
+// Refresh swiper pas resize biar gak macet
+window.addEventListener('resize', () => {
+    heroSwiper.update();
+    swiperUcapan.update();
+    swiperPromosi.update();
 });
