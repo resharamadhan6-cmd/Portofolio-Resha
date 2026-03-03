@@ -49,9 +49,10 @@ document.addEventListener('click', function(e) {
         menuModal.classList.remove('active');
     }
 
-    // B. LIGHTBOX FIX (Anti Meledak & Lock Scroll)
+    // B. LIGHTBOX FIX (Anti Meledak & Lock Scroll & Anti-Swiper-Conflict)
     const clickedImg = e.target.closest('.design-card img');
     if (clickedImg) {
+        e.stopImmediatePropagation(); // STOP perintah ke Swiper biar gak conflict layout
         lightboxImg.src = clickedImg.src;
         lightbox.classList.add('active');
         document.body.classList.add('modal-open');
@@ -61,11 +62,13 @@ document.addEventListener('click', function(e) {
     if (e.target === lightbox || e.target.closest('.lightbox-close')) {
         lightbox.classList.remove('active');
         document.body.classList.remove('modal-open');
+        // Reset src pas tutup biar gak 'kedip' pas buka foto lain
+        setTimeout(() => { lightboxImg.src = ""; }, 300);
     }
 
-    // C. SCROLL ACCURATE
+    // C. SCROLL ACCURATE (Hanya jalan kalo lightbox gak aktif)
     const slide = e.target.closest('.mySwiper .swiper-slide');
-    if (slide) {
+    if (slide && !lightbox.classList.contains('active')) {
         const img = slide.querySelector('img');
         if (img && img.hasAttribute('alt')) {
             const alt = img.getAttribute('alt').toLowerCase();
