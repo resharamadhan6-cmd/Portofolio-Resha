@@ -266,74 +266,152 @@ body {
     }
 }
 
-/* =========================================
-   FIX NAVIGASI: KEMBALI & PILL HORIZONTAL
-   ========================================= */
 @media (max-width: 768px) {
-    /* 1. Header Wrapper (Kembali + Pill) */
+    body { padding: 10px; }
+
+    /* 1. FIX NAVIGASI: Tombol Kembali di Atas, Navbar di Bawah (Center) */
     .detail-header {
-        flex-direction: row !important; /* Paksa tetap satu baris */
-        justify-content: space-between !important;
-        align-items: center !important;
-        gap: 10px !important;
-        margin-bottom: 20px !important;
+        display: flex !important;
+        flex-direction: column !important; /* Paksa tumpuk atas-bawah */
+        align-items: center !important;    /* Semua rata tengah */
+        justify-content: center !important;
+        gap: 15px !important;              /* Jarak antara Kembali dan Navbar */
+        margin-bottom: 25px !important;
     }
 
-    /* 2. Tombol Kembali (Dikecilin biar gak makan space) */
     .btn-kembali {
-        padding: 8px 12px !important; /* Kecilin padding */
-        font-size: 9px !important; /* Kecilin font */
-        min-width: fit-content !important;
-        white-space: nowrap !important; /* Biar teks gak turun */
+        padding: 8px 20px !important;
+        font-size: 10px !important;
+        white-space: nowrap !important;
+        width: fit-content !important;     /* Biar gak selebar layar */
     }
 
-    /* 3. Navigasi Pill (Eco Fold & Beat Boost) */
     .nav-pill-wrapper {
         display: flex !important;
-        flex-direction: row !important; /* WAJIB Kiri-Kanan */
-        flex-wrap: nowrap !important; /* Anti tumpuk vertikal */
+        flex-direction: row !important;    /* Eco Fold & Beat Boost tetap kiri-kanan */
+        flex-wrap: nowrap !important;
         padding: 4px !important;
-        gap: 4px !important;
+        gap: 8px !important;
+        width: fit-content !important;
+        margin: 0 auto !important;
+        background: #fff !important;       /* Opsional: biar kelihatan menyatu */
+        border-radius: 50px !important;
     }
 
+    /* Teks Navbar Jadi Atas-Bawah Rapi */
     .nav-pill-item {
-        padding: 6px 10px !important; /* Kecilin tombol tab */
-        font-size: 9px !important; /* Font seragam dengan tombol kembali */
-        white-space: nowrap !important;
+        display: flex !important;
+        flex-direction: column !important; /* Paksa teks numpuk vertikal */
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 13px 25px !important;
+        font-size: 13px !important;
+        line-height: 1.1 !important;
+        text-align: center !important;
+        white-space: normal !important;    /* Izinkan teks turun baris */
+        min-width: 70px !important;        /* Biar ukuran tombol seragam */
     }
 
-    /* Spacer dihilangkan saja biar gak ganggu di HP */
-    .header-spacer {
-        display: none !important;
-    }
+    .header-spacer { display: none !important; }
 
-    /* 4. Fix Hero Card (Sejajar & Proporsional) */
-    .hero-card {
-        padding: 20px 15px !important;
-        height: auto !important;
+    /* 2. FIX HERO CARD: Logo Sejajar Horizontal */
+    .hero-card { 
+        padding: 20px 15px !important; 
+        height: auto !important; 
         min-height: unset !important;
     }
 
-    .hero-logo-wrapper {
-        flex-direction: row !important;
+    .hero-logo-wrapper { 
+        display: flex !important;
+        flex-direction: row !important; 
+        align-items: center !important; 
+        justify-content: center !important;
         gap: 12px !important;
+        width: 100% !important;
     }
 
-    .hero-icon {
-        width: 50px !important; /* Kecilin logo biar muat satu baris sama teks */
+    .hero-icon { 
+        width: 50px !important; 
+        height: auto !important; 
     }
 
-    .main-logo-text {
-        font-size: 1.8rem !important; /* Teks Beat Boost disesuaikan */
+    .main-logo-text { 
+        font-size: 1.8rem !important; 
+        text-align: left !important;
     }
 
-    /* 5. Fix Kartu Submark dkk (Biar gak lonjong) */
-    .sub-card {
-        min-height: 140px !important; /* Lebih pendek lagi biar kotak */
-        padding: 15px !important;
+    /* 3. LOGO GRID 3 KOLOM HORIZONTAL */
+    .logo-grid-top { 
+        display: grid !important; 
+        grid-template-columns: repeat(3, 1fr) !important; 
+        gap: 10px !important; 
+        margin-bottom: 15px !important;
+        width: 100% !important;
+        align-items: stretch !important; /* Biar tinggi kotak sama rata */
     }
 
-    .img-container, .logo-type-content {
-        height: 70px !important;
+    .sub-card { 
+        min-height: unset !important; 
+        height: auto !important;
+        padding: 12px 8px !important; 
+        border-radius: 15px !important; 
+        justify-content: flex-start !important; 
+        width: 100% !important;
+    }
+
+    .img-container, .logo-type-content { 
+        height: 60px !important; 
+        margin: 5px 0 !important;
+    }
+
+    .img-container img { 
+        max-width: 85% !important; 
+    }
+
+    .logo-type-font { 
+        font-size: 0.9rem !important; 
+    }
+
+    .sub-card small { 
+        font-size: 0.65rem !important; 
+        margin-bottom: 5px !important;
+    }
+
+    /* 4. FIX MOCKUP GRID: Portrait (1 & 4) vs Landscape */
+    .mockup-grid { 
+        grid-template-columns: 1fr !important; 
+        gap: 15px !important;
+    }
+
+    .mock-item, .mock-item.tall, .mock-item.wide { 
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+        height: 220px !important; 
+        border-radius: 25px !important;
+    }
+
+    /* KHUSUS FOTO 1 & 4 JADI PORTRAIT */
+    .mockup-grid .mock-item:nth-child(1),
+    .mockup-grid .mock-item:nth-child(4) {
+        height: 480px !important; 
+    }
+
+    .mock-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover !important; 
+    }
+
+    /* 5. FIX TYPOGRAFI & PALETTE */
+    .colors-wrapper { gap: 10px !important; }
+    .circle { width: 40px !important; height: 40px !important; }
+    
+    .typo-flex { 
+        flex-direction: column !important; 
+        gap: 25px !important; 
+    }
+    
+    .font-1 .aa, .font-2 .aa { 
+        font-size: 3rem !important; 
     }
 }

@@ -124,10 +124,160 @@ body {
 .png-mockup img { width: 90%; }
 .full-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-@media (max-width: 1024px) {
-    .typo-content-wrapper { flex-direction: column; align-items: center; gap: 40px; }
-    .logo-grid { grid-template-columns: 1fr; }
-    .mockup-top, .mockup-bottom { flex-direction: column; }
-    .navbar { flex-direction: column; gap: 15px; }
-    .header-spacer { display: none; }
+/* =========================================
+   RESPONSIVE MODE: HP (ECO FOLD FIX)
+/* =========================================
+   RESPONSIVE MODE: HP (ECO FOLD FINAL FIX)
+   ========================================= */
+/* =========================================
+   RESPONSIVE MODE: HP (ECO FOLD FINAL FIX)
+   ========================================= */
+@media (max-width: 768px) {
+    body { padding: 0; }
+
+    /* 1. NAVBAR & TOMBOL: Rapi & Stacked Center */
+    .navbar {
+        flex-direction: column !important; /* Kembali di atas, Navbar Pill di bawah */
+        gap: 15px !important;
+        padding: 15px 5% !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .btn-kembali {
+        order: 1 !important; /* Paling atas */
+        padding: 8px 20px !important;
+        font-size: 10px !important;
+        width: fit-content !important;
+    }
+
+    .nav-pill-wrapper {
+        order: 2 !important; /* Baris kedua */
+        display: flex !important;
+        flex-direction: row !important; /* Pill tetap kiri-kanan */
+        gap: 5px !important;
+        padding: 5px !important;
+        width: fit-content !important;
+    }
+
+    /* Teks Navbar Jadi Atas-Bawah (Style Vertikal) */
+    .nav-pill-item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 13px 25px !important;
+        font-size: 13px !important;
+        line-height: 1.1 !important;
+        text-align: center !important;
+        white-space: normal !important;
+        min-width: 70px !important;
+    }
+
+    .header-spacer { display: none !important; }
+
+    /* 2. HERO: Logo Dikecilin Dikit */
+    .hero-brand { padding: 40px 0 !important; }
+    .logo-slide-in { max-width: 85% !important; }
+
+    /* 3. LOGO GRID: Paksa 3 Kolom Horizontal sampingan */
+    .logo-grid { 
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important; /* 3 Kolom Sampingan */
+        gap: 8px !important;
+        padding: 0 10px !important;
+        align-items: stretch !important; /* Biar tinggi kotak sama rata */
+    }
+
+    .logo-item { padding: 15px 0 !important; }
+    .logo-item h3 { font-size: 0.6rem !important; margin-bottom: 8px !important; letter-spacing: 0.5px !important; }
+
+    .box { 
+        height: 100px !important; /* Kotak jadi cebol biar proporsional sampingan */
+        padding: 10px !important;
+        border-radius: 12px !important;
+    }
+    
+    .box img { max-width: 85% !important; }
+
+    /* Fix Pop-up box saat active (diklik) di HP */
+    .box.active {
+        width: 85% !important;
+        min-height: 350px !important;
+        padding: 25px !important;
+        border-radius: 20px !important;
+    }
+
+    /* 4. IDENTITY: Color Palette */
+    .color-palette { gap: 10px !important; margin-bottom: 50px !important; }
+    .color-swatch { 
+        width: 45% !important; /* Jadi 2 kolom per baris */
+        height: 100px !important; 
+        border-radius: 10px !important;
+    }
+
+    /* =========================================
+       REVISI UTAMA: TIPOGRAFI ALA BEAT BOOST
+       ========================================= */
+    .typography-showcase { 
+        padding: 50px 20px !important; 
+        border-radius: 20px !important; 
+    }
+    
+    .typo-title { 
+        font-size: 2rem !important; 
+        margin-bottom: 40px !important; 
+    }
+    
+    /* Buat content-wrapper jadi flex vertikal (tumpuk bawah) */
+    .typo-content-wrapper { 
+        flex-direction: column !important; 
+        align-items: center !important; 
+        gap: 40px !important; 
+    }
+
+    /* Style Box AA + Info jadi Vertikal */
+    .typo-box { 
+        flex-direction: column !important; /* AA di atas, Info di bawah */
+        align-items: center !important; 
+        text-align: center !important; 
+        gap: 15px !important; 
+        width: 100% !important;
+    }
+
+    /* AA Super Gede ala Beat Boost */
+    .font-preview { 
+        font-size: 5rem !important; /* AA jadi fokus utama gede */
+        line-height: 1 !important; 
+    }
+    
+    .cenastra { transform: none !important; } /* Reset transform buat hp */
+
+    /* Info Teks */
+    .typo-info h4 { font-size: 1.4rem !important; margin-bottom: 8px !important; }
+    .typo-info p { 
+        font-size: 0.75rem !important; 
+        line-height: 1.4 !important; 
+        max-width: 250px !important; /* Biar gak kepanjangan ke samping */
+        margin: 0 auto !important;
+    }
+
+    /* 5. MOCKUP: Foto 1 & 4 Portrait sampingan */
+    .mockup-top, .mockup-bottom { 
+        flex-direction: column !important; 
+    }
+
+    .mockup-item {
+        width: 100% !important;
+        height: 250px !important; /* Default tinggi landscape */
+    }
+
+    /* KHUSUS FOTO 1 (Kartu) & FOTO 4 (Totebag) JADI PORTRAIT (TINGGI) */
+    .mockup-section .mockup-item:nth-child(1),
+    .mockup-bottom .mockup-item:last-child { 
+        height: 480px !important; 
+    }
+
+    .png-mockup { padding: 40px !important; }
+    .full-img img { object-fit: cover !important; }
 }
