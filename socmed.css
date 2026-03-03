@@ -1,0 +1,318 @@
+:root {
+    --cream: #F2EFE4;
+    --toska: #3D9B8B;
+    --dark-toska: #338577;
+    --light-toska: #A5D7D0;
+    --white: #ffffff;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Montserrat', sans-serif; 
+    background: var(--cream); 
+    color: var(--toska); 
+    overflow-x: hidden; 
+}
+
+/* NAVBAR */
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px 5%; 
+    position: relative; 
+    z-index: 1001; 
+}
+
+.btn-kembali { 
+    background: var(--toska); 
+    color: white; 
+    text-decoration: none; 
+    padding: 8px 15px; 
+    border-radius: 6px; 
+    font-size: 0.8rem; 
+    font-weight: bold; 
+}
+
+.menu-icon { 
+    cursor: pointer; 
+}
+
+.menu-icon span { 
+    display: block; 
+    width: 25px; 
+    height: 3px; 
+    background: var(--toska); 
+    margin: 4px 0; 
+}
+
+/* HERO SECTION */
+.hero-section { 
+    position: relative; 
+    text-align: center; 
+    padding-bottom: 50px; 
+}
+
+.main-title { 
+    font-size: 4.5rem; 
+    line-height: 1; 
+    margin: 40px 0; 
+    font-weight: 800; 
+}
+
+.koleksi-label { 
+    font-family: 'Playfair Display', serif; 
+    font-style: italic; 
+    font-size: 1.8rem; 
+    margin-bottom: 20px; 
+}
+
+.decor-flower { 
+    position: absolute; 
+    font-size: 25px; 
+    opacity: 0.4; 
+    pointer-events: none; 
+}
+
+.f1 { top: 15%; left: 10%; } 
+.f2 { top: 10%; right: 10%; }
+.f3 { bottom: 20%; left: 15%; }
+.f4 { bottom: 10%; right: 15%; }
+
+/* SWIPER HERO - RASIO 4:5 (SOLUSI ZOOM) */
+.mySwiper { 
+    width: 100%; 
+    padding: 40px 0 60px; 
+    overflow: visible !important; 
+    cursor: grab; 
+}
+
+.mySwiper:active { 
+    cursor: grabbing; 
+}
+
+.mySwiper .swiper-slide { 
+    width: 200px; /* Lebar kita atur pas */
+    aspect-ratio: 4 / 5; /* Ini kuncinya biar gak ngezoom aneh */
+    border-radius: 20px; 
+    overflow: hidden; 
+    transition: 0.5s ease; 
+    filter: blur(5px) brightness(0.5); 
+    opacity: 0.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.05);
+}
+
+.mySwiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar tetep penuh tapi proporsional 4:5 */
+    display: block;
+}
+
+.mySwiper .swiper-slide-active { 
+    filter: blur(0) brightness(1); 
+    opacity: 1; 
+    transform: scale(1.3); 
+    z-index: 10; 
+}
+
+/* MARQUEE SECTIONS */
+.cat-section { 
+    padding: 80px 0; 
+    text-align: center; 
+    overflow: hidden; 
+}
+
+.swiper-ucapan, .swiper-promosi { 
+    width: 100%; 
+    padding: 20px 0; 
+}
+
+.design-card { 
+    width: 280px; 
+    background: white; 
+    padding: 12px; 
+    border-radius: 25px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    cursor: zoom-in; 
+}
+
+.design-card img { 
+    width: 100%; 
+    border-radius: 18px; 
+    display: block; 
+}
+
+.bg-toska { background: var(--toska); color: white; }
+.bg-cream { background: var(--cream); color: var(--toska); }
+
+.title-big { 
+    font-size: 3.5rem; 
+    line-height: 0.9; 
+    margin-bottom: 20px; 
+}
+
+.title-italic { 
+    font-family: 'Playfair Display', serif; 
+    font-style: italic; 
+    font-weight: 400; 
+    font-size: 3rem; 
+}
+
+.toska-text { color: var(--toska); }
+
+/* MODAL MENU */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(5px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9999; opacity: 0; visibility: hidden; transition: 0.3s ease;
+}
+
+.modal-overlay.active { opacity: 1; visibility: visible; }
+
+.modal-content {
+    background: var(--light-toska); width: 90%; max-width: 400px; padding: 50px 20px;
+    border-radius: 30px; position: relative; text-align: center;
+    transform: scale(0.8); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .modal-content { transform: scale(1); }
+
+.modal-decor { position: absolute; font-size: 1.5rem; color: var(--toska); }
+.decor-tl { top: 20px; left: 20px; } 
+.decor-tr { top: 20px; right: 20px; }
+
+.modal-nav { display: flex; flex-direction: column; gap: 20px; }
+.modal-nav a { font-size: 1.8rem; font-weight: 800; color: var(--toska); text-decoration: none; }
+
+.modal-close { margin-top: 30px; font-size: 2.5rem; color: var(--toska); cursor: pointer; }
+
+/* LIGHTBOX */
+.lightbox {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 10000; opacity: 0; visibility: hidden; transition: 0.4s ease; cursor: zoom-out;
+}
+
+.lightbox.active { opacity: 1; visibility: visible; }
+
+.lightbox img { 
+    max-width: 90%; 
+    max-height: 80%; 
+    border-radius: 15px; 
+    transform: scale(0.8); 
+    transition: 0.4s ease; 
+}
+
+.lightbox.active img { transform: scale(1); }
+
+.lightbox-close { 
+    position: absolute; 
+    top: 30px; 
+    right: 40px; 
+    color: white; 
+    font-size: 3rem; 
+    cursor: pointer; 
+}
+
+/* =========================================
+   RESPONSIVE MODE: SOCMED PORTFOLIO HP
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. HERO SECTION */
+    .hero-section {
+        padding-bottom: 30px;
+    }
+
+    .main-title {
+        font-size: 2.8rem !important; /* Font judul gede dikecilin */
+        margin: 20px 0;
+    }
+
+    .main-title span {
+        font-size: 2.5rem; /* Sub-judul social media */
+    }
+
+    .koleksi-label {
+        font-size: 1.4rem !important;
+        margin-bottom: 10px;
+    }
+
+    /* 2. SWIPER HERO (SLIDER ATAS) */
+    .mySwiper {
+        padding: 20px 0 40px !important;
+    }
+
+    .mySwiper .swiper-slide { 
+        width: 140px !important; /* Ukuran pas buat HP biar gak sesak */
+        border-radius: 15px !important;
+    }
+
+    .mySwiper .swiper-slide-active {
+        transform: scale(1.2); /* Zoom aktif dikecilin dikit biar gak nabrak teks */
+    }
+
+    /* 3. DEKORASI BUNGA: Disesuaikan biar gak ganggu konten */
+    .f1 { top: 12%; left: 5%; font-size: 18px; } 
+    .f2 { top: 8%; right: 5%; font-size: 18px; }
+    .f3 { bottom: 15%; left: 8%; font-size: 18px; }
+    .f4 { bottom: 5%; right: 8%; font-size: 18px; }
+
+    /* 4. MARQUEE SECTIONS (UCAPAN, PROMOSI, POSTINGAN) */
+    .cat-section {
+        padding: 50px 0 !important;
+    }
+
+    .title-big {
+        font-size: 2.2rem !important;
+        line-height: 1;
+    }
+
+    .title-italic {
+        font-size: 1.8rem !important;
+    }
+
+    .design-card {
+        width: 190px !important; /* Kartu desain di HP lebih mungil tapi tetep jelas */
+        padding: 8px !important;
+        border-radius: 18px !important;
+    }
+
+    .design-card img {
+        border-radius: 12px !important;
+    }
+
+    /* 5. MODAL MENU */
+    .modal-content {
+        padding: 40px 15px !important;
+    }
+
+    .modal-nav a {
+        font-size: 1.5rem !important;
+    }
+
+    /* 6. LIGHTBOX: Biar Close-nya gampang dipencet */
+    .lightbox-close {
+        top: 20px;
+        right: 25px;
+        font-size: 2.5rem;
+    }
+}
+
+/* Tambahan buat HP Layar Sangat Kecil (iPhone SE dkk) */
+@media (max-width: 380px) {
+    .main-title { font-size: 2.2rem !important; }
+    .mySwiper .swiper-slide { width: 120px !important; }
+    .design-card { width: 160px !important; }
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thumbnail Portfolio - YT Style Pro</title>
+    <link rel="stylesheet" href="youtube.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="bg-animation"></canvas>
+
+    <header class="yt-header">
+        <div class="logo-section">
+            <a href="index.html" class="btn-back">← KEMBALI</a>
+        </div>
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Telusuri karya design...">
+                <button class="search-btn" id="searchBtn">🔍</button>
+            </div>
+        </div>
+        <div class="user-section">
+            <div class="menu-btn-trigger" id="openMenu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="mobile-overlay">
+        <div class="overlay-card">
+            <ul class="mobile-links">
+                <li><a href="PORTOFOLIO.html">HOME</a></li>
+                <li><a href="Project.html">PROJECT</a></li>
+                <li><a href="About.html">ABOUT ME</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <div class="close-menu" id="closeBtn">×</div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="side-info">
+                <p>PORTFOLIO GALLERY</p>
+                <span>EST. 2026</span>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="video-grid" id="videoGrid">
+                
+                <div class="video-card" data-title="highlight trekking - Bersama DITJEN KPAII">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/Artboard 1.png" alt="Thumbnail 1">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>highlight trekking - Bersama DITJEN KPAII</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Premium Quality Design</p>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="Highlight outbound - bersama putri indonesia">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/Artboard 2.png" alt="Thumbnail 2">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>Highlight outbound - bersama putri indonesia</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="highlight trekking - Bersama DPD RI">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/Artboard 4.png" alt="Thumbnail 3">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>highlight trekking - Bersama DPD RI</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card" data-title="highlight Rafting - Diktorat Jendral Perhubungan Darat">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/THUMBNAIL 5.jpg" alt="Thumbnail 4">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>highlight Rafting - Diktorat Jendral Perhubungan Darat</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="Highlight Fun Games - Bersama Kementrian Perdagangan">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/THUMBNAIL 4.jpg" alt="Thumbnail 5">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>Highlight Fun Games - Bersama Kementrian Perdagangan</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="highlight trekking - Bersama BUMN">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/THUMBNAIL 3.jpg" alt="Thumbnail 6">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>highlight trekking - Bersama BUMN</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="Highlight Paintball - Bersama Altech">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/ALTECH.png" alt="Thumbnail 7">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>Highlight Paintball - Bersama Altech</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="Highlight Paintball - Bersama Toyoks">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/toyoks.png" alt="Thumbnail 8">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>Highlight Paintball - Bersama Toyoks</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="Highlight Paintball & Team Building - Bersama KPK">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/Thumbnail KPK.jpg" alt="Thumbnail 9">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>Highlight Paintball & Team Building - Bersama KPK</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="highlight trekking">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/THUMNAIL .jpg" alt="Thumbnail 10">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>highlight trekking</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="highlight Rafting - PT. Mayora">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/8738796.jpg" alt="Thumbnail 11">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>highlight Rafting - PT. Mayora</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="highlight Team Building - Kenmo Group">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/THUMBNAIL.jpg" alt="Thumbnail 12">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>highlight Team Building - Kenmo Group</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="highlight Rafting - HSSE Journey">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/THUMBNAIL 6.jpg" alt="Thumbnail 13">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>highlight Rafting - HSSE Journey</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" data-title="Pengabdian masyarakat Di SDN Pondok Ranggon 01 pagi">
+                    <div class="thumbnail-container">
+                        <img src="image/thumbnail/Pengabdian Masyarakat (2).jpg" alt="Thumbnail 12">
+                    </div>
+                    <div class="info-card">
+                        <div class="video-info">
+                            <div class="channel-icon"><img src="home/LOGO PORTOFOLIO.png" alt="Logo"></div>
+                            <div class="text-info">
+                                <h3>Pengabdian masyarakat Di SDN Pondok Ranggon 01 pagi</h3>
+                                <p class="channel-name">Design By Me • ✓</p>
+                                <p class="stats">Visual Identity Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </main>
+    </div>
+
+    <script src="youtube.js"></script>
+</body>
+</html>
