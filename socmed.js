@@ -44,56 +44,76 @@ document.addEventListener('click', function(e) {
     // A. MODAL MENU
     if (e.target.closest('.menu-icon')) {
         menuModal.classList.add('active');
+        return; // Stop execution biar gak bentrok
     }
     if (e.target.closest('#closeBtn') || e.target === menuModal) {
         menuModal.classList.remove('active');
+        return;
     }
 
-    // B. LIGHTBOX FIX (Anti Meledak & Lock Scroll & Anti-Swiper-Conflict)
+    // B. LIGHTBOX FIX (Super Priority & Lock Position)
     const clickedImg = e.target.closest('.design-card img');
     if (clickedImg) {
-        e.stopImmediatePropagation(); // STOP perintah ke Swiper biar gak conflict layout
+        e.preventDefault();
+        e.stopPropagation(); // Stop event biar gak bocor ke elemen di bawahnya
+        
         lightboxImg.src = clickedImg.src;
         lightbox.classList.add('active');
+        
+        // Kunci posisi scroll biar gak lari ke bawah pas foto dibuka
+        const scrollY = window.scrollY;
+        document.body.style.top = `-${scrollY}px`;
         document.body.classList.add('modal-open');
+        return;
     }
     
     // Tutup Lightbox
     if (e.target === lightbox || e.target.closest('.lightbox-close')) {
+        // Ambil kembali posisi scroll sebelum dikunci
+        const scrollY = document.body.style.top;
+        
         lightbox.classList.remove('active');
         document.body.classList.remove('modal-open');
-        // Reset src pas tutup biar gak 'kedip' pas buka foto lain
+        
+        // Kembalikan posisi scroll layar
+        document.body.style.top = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+
+        // Reset src biar gak ada bayangan foto lama pas buka foto baru
         setTimeout(() => { lightboxImg.src = ""; }, 300);
+        return;
     }
 
     // C. SCROLL ACCURATE (Hanya jalan kalo lightbox gak aktif)
-    const slide = e.target.closest('.mySwiper .swiper-slide');
-    if (slide && !lightbox.classList.contains('active')) {
-        const img = slide.querySelector('img');
-        if (img && img.hasAttribute('alt')) {
-            const alt = img.getAttribute('alt').toLowerCase();
-            let targetId = "";
-            
-            if (alt.includes('ucapan')) targetId = "ucapan";
-            else if (alt.includes('promo')) targetId = "promosi";
-            else if (alt.includes('postingan')) targetId = "postingan";
+    if (!lightbox.classList.contains('active')) {
+        const slide = e.target.closest('.mySwiper .swiper-slide');
+        if (slide) {
+            const img = slide.querySelector('img');
+            if (img && img.hasAttribute('alt')) {
+                const alt = img.getAttribute('alt').toLowerCase();
+                let targetId = "";
+                
+                if (alt.includes('ucapan')) targetId = "ucapan";
+                else if (alt.includes('promo')) targetId = "promosi";
+                else if (alt.includes('postingan')) targetId = "postingan";
 
-            const element = document.getElementById(targetId);
-            if (element) {
-                const offset = 20; 
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
+                const element = document.getElementById(targetId);
+                if (element) {
+                    const offset = 20; 
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
             }
         }
     }
 });
 
-// Refresh Swiper pas resize
+// Refresh Swiper pas resize biar layout gak berantakan di HP
 window.addEventListener('resize', () => {
     heroSwiper.update();
     swiperUcapan.update();
