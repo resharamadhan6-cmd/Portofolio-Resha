@@ -168,17 +168,23 @@ animateWorms();
 initStarCanvas();
 animateStars();
 
-// Smooth Scroll
+
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-            window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
-        }
+        const href = link.getAttribute('href');
+
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                window.scrollTo({ 
+                    top: target.offsetTop - 70, 
+                    behavior: 'smooth' 
+                });
+            }
+        } 
     });
 });
-
 // Tambahkan ini di bagian paling bawah script.js kamu
 const mobileToggle = document.getElementById('mobile-toggle');
 const navWrapper = document.getElementById('nav-wrapper');
